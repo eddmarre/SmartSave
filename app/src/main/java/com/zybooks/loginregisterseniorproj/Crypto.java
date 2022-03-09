@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import android.os.Bundle;
-
+//Jordan
 public class Crypto extends AppCompatActivity {
     private RecyclerView currencyRV;
     private EditText searchEdt;

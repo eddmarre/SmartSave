@@ -1,5 +1,5 @@
 package com.zybooks.loginregisterseniorproj;
-
+//Jordan
 public class CryptoCurrencyModel {
     private String name;
     private String symbol;

@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!--text view for displaying symbol-->
+        <!--Written By Jordan-->
         <TextView
             android:id="@+id/idTVSymbol"
             android:layout_width="match_parent"

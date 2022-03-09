@@ -11,13 +11,15 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="133dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="132dp"
+        android:layout_marginBottom="16dp"
         android:text="SmartSave"
         android:textColor="@color/white"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,15 +28,11 @@
         android:layout_width="126dp"
         android:layout_height="91dp"
         android:layout_marginStart="143dp"
-        android:layout_marginTop="88dp"
         android:layout_marginEnd="142dp"
-        android:layout_marginBottom="552dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/banklogo" />
 
     <Button
@@ -42,33 +40,23 @@
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="146dp"
-        android:layout_marginTop="283dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginBottom="400dp"
+        android:layout_marginEnd="140dp"
         android:onClick="crypto"
         android:text="Crypto"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="146dp"
-        android:layout_marginTop="356dp"
         android:layout_marginEnd="140dp"
-        android:layout_marginBottom="326dp"
         android:text="Visual"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button5"
@@ -81,23 +69,18 @@
         android:text="Family"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="146dp"
-        android:layout_marginTop="209dp"
         android:layout_marginEnd="143dp"
-        android:layout_marginBottom="474dp"
         android:text="Finances"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

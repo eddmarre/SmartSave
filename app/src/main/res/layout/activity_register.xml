@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     tools:context=".Register">
-
+    <!--Written By Tino-->
     <EditText
         android:id="@+id/entry1"
         android:layout_width="wrap_content"

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-
+//Jordan
 public class CryptoCurrencyRVAdapter extends RecyclerView.Adapter<CryptoCurrencyRVAdapter.CurrencyViewholder> {
     private static DecimalFormat df2 = new DecimalFormat("#.##");
     private ArrayList<CryptoCurrencyModel> currencyModels;

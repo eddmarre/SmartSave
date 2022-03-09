@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/drawable/splash_screen.xml" value="0.2275" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_crypto.xml" value="0.2046875" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_crypto_currency_rv_adapter.xml" value="0.2046875" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_crypto_currency_rvadapter.xml" value="0.190625" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_main.xml" value="0.21920289855072464" />
+        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_register.xml" value="0.264" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_user_main_menu.xml" value="0.11197916666666667" />
+        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_user_main_menu.xml" value="0.264" />
+        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/splash_screen.xml" value="0.2375" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_register.xml" value="0.264" />
       </map>

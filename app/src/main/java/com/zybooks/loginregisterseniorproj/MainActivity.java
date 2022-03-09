@@ -21,18 +21,19 @@ public class MainActivity extends AppCompatActivity {
     Button register, login; //set up to use later
     TextView username, password;
     EditText entry1, entry4;
-    String string, string2;
+
     //Eddie
     private AccountUserTable _accountUserTable;
     private List<String> userNames;
     private List<String> passwords;
     private boolean isValidLogin;
+    private static boolean isActivityActive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Tino
         Intent recString= getIntent();
 
         entry1 = (EditText) findViewById(R.id.entry1); //make them findable by id
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         password = (TextView) findViewById(R.id.password);
         register = (Button) findViewById(R.id.Register);
         login = (Button) findViewById(R.id.Login);
-
+        //Eddie
         userNames=new ArrayList<>();
         passwords=new ArrayList<>();
         
@@ -52,11 +53,24 @@ public class MainActivity extends AppCompatActivity {
     private void CreateOrAddUserTable() {
         _accountUserTable=new AccountUserTable(this);
     }
-
-
+    /*On Start and On Stop will check to make sure User logins don't try to run after activity
+    is shut down */
+    //Eddie
+    @Override
+    protected void onStart() {
+        super.onStart();
+        isActivityActive=true;
+    }
+    //Eddie
+    @Override
+    protected void onStop() {
+        super.onStop();
+        isActivityActive=false;
+    }
+    //Eddie
     public void LoginToApp(View v) { //button to login, checks if username and password matches registration
         CheckIfValidUserNameAndPassword();
-        if(isValidLogin==false)
+        if(!isValidLogin && isActivityActive)
         {
             Toast.makeText(this, "error couldn't login", Toast.LENGTH_SHORT).show();
         }
@@ -93,7 +107,8 @@ public class MainActivity extends AppCompatActivity {
             {
                 if (username.getText().toString().equals(_username) && (password.getText().toString().equals(_password)))
                 {
-                    Toast.makeText(MainActivity.this, "Successful login", Toast.LENGTH_LONG).show();
+
+                    Toast.makeText(MainActivity.this, "Successful login", Toast.LENGTH_SHORT).show();
                     isValidLogin=true;
                     ChangeSceneAfterLogin();
                 }
@@ -104,17 +119,19 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+    //Eddie
     private void ChangeSceneAfterLogin() {
         Intent n = new Intent(this, UserMainMenu.class);
         startActivity(n);
+        finish();
     }
-
+    //Tino
     public void Register(View v) { //switch to registration activity
         Intent n = new Intent(this, Register.class);
         startActivity(n);
     }
-    //for debuging purposes
+    //Eddie
+    //for debugging purposes
     public void GetUserInfo(View view) {
         Cursor tableData = _accountUserTable.GetTableData();
         if (tableData.getCount() == 0) {

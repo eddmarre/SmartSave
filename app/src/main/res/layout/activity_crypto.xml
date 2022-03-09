@@ -7,7 +7,7 @@
     android:background="@color/black_shade_1"
     tools:context=".Crypto">
 
-    <!--edit text for searching our currency-->
+    <!--Written By Jordan-->
     <EditText
         android:id="@+id/idEdtCurrency"
         android:layout_width="match_parent"

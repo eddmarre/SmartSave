@@ -2,17 +2,15 @@ package com.zybooks.loginregisterseniorproj;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+//Tino & Eddie
 public class Register extends AppCompatActivity {
-
+    //Tino
     Button Complete;
     EditText entry1, entry2, entry3, entry4,entry5,entry6;
     String emailValidate = "[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.+[a-zA-Z]+"; //using regular expression (or regex),
@@ -39,50 +37,49 @@ public class Register extends AppCompatActivity {
     public void Complete(View v) { //before moving back to login, makes sure all fields are valid in some way
         ChekUserInputInformation();
     }
-
+    //Eddie & Tino
     private void ChekUserInputInformation() {
         //check if fields are empty then tells you to fill them in if they are
         if (entry1.getText().toString().isEmpty() || entry2.getText().toString().isEmpty() ||
                 entry3.getText().toString().isEmpty() || entry4.getText().toString().isEmpty() ||
                 entry5.getText().toString().isEmpty() || entry6.getText().toString().isEmpty())
         {
-            GiveUserDialoguge("Fill in all fields");
+            MakeToastDialoguge("Fill in all fields");
         }
         //makes sure first name and last name are within 3 to 30 chars
         else if(entry1.length() < 3 || entry1.length() > 30 || entry2.length() < 3 || entry2.length() > 30)
         {
-            GiveUserDialoguge("First name and last name must be between 3 and 30 characters");
+            MakeToastDialoguge("First name and last name must be between 3 and 30 characters");
         }
-        else if(!entry3.getText().toString().trim().matches(emailValidate)) { //uses the emailValidate sequence to confirm correct email format
-            GiveUserDialoguge("Invalid email address");
-        }
-        else if(entry4.length() < 7) //makes sure password isn't too short
+        //uses the emailValidate sequence to confirm correct email format
+        else if(!entry3.getText().toString().trim().matches(emailValidate))
         {
-            GiveUserDialoguge("Good passwords should be at least 8 characters or longer");
+            MakeToastDialoguge("Invalid email address");
+        }
+        else if(entry4.length() < 7)
+        {
+            MakeToastDialoguge("Good passwords should be at least 8 characters or longer");
         }
         else if(entry5.length()!=10)
         {
-            GiveUserDialoguge("Phone number invalid");
+            MakeToastDialoguge("Phone number invalid");
         }
         else if(entry6.length()!=10)
         {
-            GiveUserDialoguge("Invalid DOB");
+            MakeToastDialoguge("Invalid DOB");
         }
-        else{ //if everything passes the checks, go back to login
+        else
+        {
             RegisterUserInDatabase();
             ChangeScene();
         }
     }
-
-    private void GiveUserDialoguge(String message) {
+    //Eddie
+    private void MakeToastDialoguge(String message) {
         Toast.makeText(Register.this, message,Toast.LENGTH_LONG).show();
     }
 
-    private void ChangeScene() {
-        Intent n = new Intent(this, MainActivity.class);
-        startActivity(n);
-    }
-
+    //Eddie
     private void RegisterUserInDatabase()
     {
         AccountUserTable accountUserTable = new AccountUserTable(this);
@@ -95,11 +92,16 @@ public class Register extends AppCompatActivity {
 
         if(registerNewUser)
         {
-           GiveUserDialoguge("successfully registered new user in database");
+           MakeToastDialoguge("successfully registered new user in database");
         }
         else
         {
-            GiveUserDialoguge("error registering user, email already has existing account");
+            MakeToastDialoguge("error registering user, email already has existing account");
         }
+    }
+    //Eddie
+    private void ChangeScene() {
+        Intent n = new Intent(this, MainActivity.class);
+        startActivity(n);
     }
 }
