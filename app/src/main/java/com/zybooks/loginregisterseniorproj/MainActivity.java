@@ -17,12 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-    Button Register, Login; //set up to use later
+    //Tino
+    Button register, login; //set up to use later
     TextView username, password;
     EditText entry1, entry4;
     String string, string2;
-
+    //Eddie
     private AccountUserTable _accountUserTable;
     private List<String> userNames;
     private List<String> passwords;
@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         entry4 = (EditText) findViewById(R.id.entry4);
         username = (TextView) findViewById(R.id.username);
         password = (TextView) findViewById(R.id.password);
-        Register = (Button) findViewById(R.id.Register);
-        Login = (Button) findViewById(R.id.Login);
+        register = (Button) findViewById(R.id.Register);
+        login = (Button) findViewById(R.id.Login);
 
         userNames=new ArrayList<>();
         passwords=new ArrayList<>();
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         isValidLogin=false;
         CreateOrAddUserTable();
     }
-
+    //Eddie
     private void CreateOrAddUserTable() {
         _accountUserTable=new AccountUserTable(this);
     }
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "error couldn't login", Toast.LENGTH_SHORT).show();
         }
     }
-
+    //Eddie
     private void CheckIfValidUserNameAndPassword() {
         //retrieves the data from the database
         Cursor tableData=_accountUserTable.GetTableData();
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void ChangeSceneAfterLogin() {
-        Intent n = new Intent(this, Register.class);
+        Intent n = new Intent(this, UserMainMenu.class);
         startActivity(n);
     }
 
@@ -114,9 +114,8 @@ public class MainActivity extends AppCompatActivity {
         Intent n = new Intent(this, Register.class);
         startActivity(n);
     }
-
+    //for debuging purposes
     public void GetUserInfo(View view) {
-        //_accountUserTable=new AccountUserTable(this);
         Cursor tableData = _accountUserTable.GetTableData();
         if (tableData.getCount() == 0) {
             Toast.makeText(this, "nothing in database", Toast.LENGTH_SHORT).show();
