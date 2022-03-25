@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/satoshi_foreground"
+        app:srcCompat="@mipmap/satoshi_round"
         android:contentDescription="@string/todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

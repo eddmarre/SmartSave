@@ -176,27 +176,45 @@ public class CompanyStockInformation extends AppCompatActivity {
 
         //sets up the chart's appearance and makes the company symbol the chart's label
         CandleDataSet candleDataSet=new CandleDataSet(candleEntries,company.getCompanySymbol());
-        candleDataSet.setColor(Color.rgb(80,80,80));
-        candleDataSet.setShadowColor(Color.rgb(0,80,0));
+        candleDataSet.setColor(Color.WHITE);
+        candleDataSet.setShadowColor(Color.BLACK);
         candleDataSet.setShadowWidth(.8f);
-        candleDataSet.setDecreasingColor(Color.rgb(100,0,0));
+        candleDataSet.setDecreasingColor(Color.RED);
         candleDataSet.setDecreasingPaintStyle(Paint.Style.FILL);
-        candleDataSet.setIncreasingColor(Color.rgb(0,80,0));
+        candleDataSet.setIncreasingColor(Color.GREEN);
         candleDataSet.setIncreasingPaintStyle(Paint.Style.FILL);
-        candleDataSet.setNeutralColor(Color.LTGRAY);
+        candleDataSet.setNeutralColor(Color.WHITE);
+        candleDataSet.setValueTextColor(Color.WHITE);
         candleDataSet.setDrawValues(false);
+
 
         //actually populates the chart with the appearance settings
         CandleData candleData= new CandleData(candleDataSet);
         chart.setData(candleData);
         chart.setBackgroundColor(Color.TRANSPARENT);
         chart.animateXY(1000,1000);
+
         chart.getXAxis().setGranularity(1f);
         chart.getXAxis().setValueFormatter(valueFormatter);
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         chart.getXAxis().setDrawGridLines(false);
+        chart.getXAxis().setTextColor(Color.WHITE);
+        chart.getXAxis().setTextSize(15f);
+
+        chart.getAxisLeft().setTextColor(Color.WHITE);
+        chart.getAxisLeft().setGranularity(.5f);
+        chart.getAxisLeft().setLabelCount(5);
+        chart.getAxisLeft().setTextSize(15f);
+
+        chart.getAxisRight().setEnabled(false);
+
+        chart.getLegend().setTextColor(Color.WHITE);
+        chart.getLegend().setTextSize(15f);
+
         Description stockDescription=new Description();
         stockDescription.setText("Daily Stock Value");
+        stockDescription.setTextColor(Color.WHITE);
+        stockDescription.setTextSize(15f);
         chart.setDescription(stockDescription);
     }
 }
