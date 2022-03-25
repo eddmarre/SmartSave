@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LoginRegisterSeniorProj</string>
+    <string name="todo">TODO</string>
+    <string name="what_is_this">What is this?</string>
+    <string name="scan_here_for_wallet_address">Scan here for wallet address!</string>
+    <string name="scanhere">Scan here for Bitcoin address!</string>
 </resources>

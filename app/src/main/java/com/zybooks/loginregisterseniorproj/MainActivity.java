@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//Tino & Eddie
 public class MainActivity extends AppCompatActivity {
     //Tino
     Button register, login; //set up to use later
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Login");
         //Tino
         Intent recString= getIntent();
 

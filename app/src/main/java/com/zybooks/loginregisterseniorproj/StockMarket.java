@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.github.mikephil.charting.charts.CandleStickChart;
-
+//Eddie
 public class StockMarket extends AppCompatActivity {
     EditText enteredText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_market);
-
+        getSupportActionBar().setTitle("Stock Market");
         enteredText=findViewById(R.id.enterSymbolText);
     }
 

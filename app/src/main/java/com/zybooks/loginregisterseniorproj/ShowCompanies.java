@@ -40,7 +40,7 @@ public class ShowCompanies extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_companies);
-
+        getSupportActionBar().setTitle("Companies");
         //Create async task
         ShowCompanies.CompanySearchTask companySearchTask = new ShowCompanies.CompanySearchTask();
         //Start api connection

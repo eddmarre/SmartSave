@@ -12,6 +12,7 @@ public class UserMainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main_menu);
+        getSupportActionBar().hide();
     }
 
     public void crypto(View view) {
@@ -21,6 +22,11 @@ public class UserMainMenu extends AppCompatActivity {
 
     public void Finances(View view) {
         Intent n=new Intent(this,StockMarket.class);
+        startActivity(n);
+    }
+
+    public void CryptoWallet(View view) {
+        Intent n=new Intent(this,CryptoWallet.class);
         startActivity(n);
     }
 }

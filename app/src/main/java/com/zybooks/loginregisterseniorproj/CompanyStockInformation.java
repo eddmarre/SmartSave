@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.CandleStickChart;
 import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.CandleData;
 import com.github.mikephil.charting.data.CandleDataSet;
@@ -34,6 +35,7 @@ public class CompanyStockInformation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_stock_information);
+        getSupportActionBar().setTitle("Daily Stock");
         //Get data sent over through activity intent
         Bundle extras=getIntent().getExtras();
         String symbol="";
@@ -187,11 +189,14 @@ public class CompanyStockInformation extends AppCompatActivity {
         //actually populates the chart with the appearance settings
         CandleData candleData= new CandleData(candleDataSet);
         chart.setData(candleData);
-        chart.setBackgroundColor(Color.rgb(100,100,100));
+        chart.setBackgroundColor(Color.TRANSPARENT);
         chart.animateXY(1000,1000);
         chart.getXAxis().setGranularity(1f);
         chart.getXAxis().setValueFormatter(valueFormatter);
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         chart.getXAxis().setDrawGridLines(false);
+        Description stockDescription=new Description();
+        stockDescription.setText("Daily Stock Value");
+        chart.setDescription(stockDescription);
     }
 }

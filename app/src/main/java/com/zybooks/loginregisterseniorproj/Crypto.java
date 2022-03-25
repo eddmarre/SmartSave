@@ -41,6 +41,7 @@ public class Crypto extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crypto);
+        getSupportActionBar().setTitle("Crypto");
 
         searchEdt = findViewById(R.id.idEdtCurrency);
 
