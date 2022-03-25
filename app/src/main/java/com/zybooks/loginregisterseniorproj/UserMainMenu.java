@@ -18,4 +18,9 @@ public class UserMainMenu extends AppCompatActivity {
         Intent n= new Intent(this, Crypto.class);
         startActivity(n);
     }
+
+    public void Finances(View view) {
+        Intent n=new Intent(this,StockMarket.class);
+        startActivity(n);
+    }
 }
