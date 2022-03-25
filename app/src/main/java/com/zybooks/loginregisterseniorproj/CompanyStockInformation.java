@@ -193,19 +193,28 @@ public class CompanyStockInformation extends AppCompatActivity {
         chart.setData(candleData);
         chart.setBackgroundColor(Color.TRANSPARENT);
         chart.animateXY(1000,1000);
+
         chart.getXAxis().setGranularity(1f);
         chart.getXAxis().setValueFormatter(valueFormatter);
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         chart.getXAxis().setDrawGridLines(false);
         chart.getXAxis().setTextColor(Color.WHITE);
+        chart.getXAxis().setTextSize(15f);
+
         chart.getAxisLeft().setTextColor(Color.WHITE);
         chart.getAxisLeft().setGranularity(.5f);
         chart.getAxisLeft().setLabelCount(5);
+        chart.getAxisLeft().setTextSize(15f);
+
         chart.getAxisRight().setEnabled(false);
+
         chart.getLegend().setTextColor(Color.WHITE);
+        chart.getLegend().setTextSize(15f);
+
         Description stockDescription=new Description();
         stockDescription.setText("Daily Stock Value");
         stockDescription.setTextColor(Color.WHITE);
+        stockDescription.setTextSize(15f);
         chart.setDescription(stockDescription);
     }
 }
