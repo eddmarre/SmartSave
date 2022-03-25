@@ -46,14 +46,12 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="138dp"
-        android:layout_height="137dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        android:id="@+id/imageView8"
+        android:layout_width="267dp"
+        android:layout_height="208dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/satoshi_round"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@mipmap/satoshi_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
