@@ -29,10 +29,13 @@
         <entry key="app/src/main/res/layout/activity_company_stock_information.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_crypto.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_crypto_currency_rv_adapter.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_crypto_transactions.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_crypto_transactions.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_crypto_wallet.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_show_companies.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/activity_stock_market.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/activity_user_main_menu.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/btcimage.xml" value="0.1725" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/qrcode.xml" value="0.1725" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/qrcode_round.xml" value="0.1725" />

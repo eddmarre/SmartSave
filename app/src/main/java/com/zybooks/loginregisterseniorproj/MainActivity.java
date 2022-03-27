@@ -153,4 +153,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void LoginToApp2(View view) {
+        Intent n = new Intent(this, UserMainMenu.class);
+        startActivity(n);
+    }
 }
