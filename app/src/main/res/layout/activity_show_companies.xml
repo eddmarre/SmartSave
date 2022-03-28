@@ -8,4 +8,13 @@
     android:background="@drawable/gradient"
     tools:context=".ShowCompanies">
 
+    <ProgressBar
+        android:id="@+id/showCompaniesprogressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:translationX="180dp"
+        android:translationY="325dp" />
 </ScrollView>

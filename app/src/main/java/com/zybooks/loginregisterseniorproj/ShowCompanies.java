@@ -1,16 +1,19 @@
 package com.zybooks.loginregisterseniorproj;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -35,12 +38,14 @@ import java.util.ArrayList;
 
 //Eddie
 public class ShowCompanies extends AppCompatActivity {
-
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_companies);
         getSupportActionBar().setTitle("Companies");
+
+        progressBar=findViewById(R.id.showCompaniesprogressBar);
         //Create async task
         ShowCompanies.CompanySearchTask companySearchTask = new ShowCompanies.CompanySearchTask();
         //Start api connection
@@ -63,6 +68,7 @@ public class ShowCompanies extends AppCompatActivity {
             b.setTag(i);
             b.setText(companyName.get(i) + "\n(" + companySymbol.get(i) + ")");
             b.setWidth(2000);
+            b.setTextColor(Color.BLACK);
             //created custom class that will take in index for parameters
             b.setOnClickListener(new CustomOnClickListener(i) {
                 @Override
@@ -74,11 +80,13 @@ public class ShowCompanies extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-
+            ll.setBackgroundColor(Color.TRANSPARENT);
             ll.addView(b);
             mainLayout.addView(ll);
         }
+        mainLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.gradient, null));
         scrollView.addView(mainLayout);
+        scrollView.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.gradient, null));
         setContentView(scrollView);
     }
 
@@ -132,6 +140,7 @@ public class ShowCompanies extends AppCompatActivity {
                     companyNames.add(companyInfo.getString("Company Name"));
                 }
                 CreateButtons(companyNames, companyNames.size(), companySymbols);
+                progressBar.setVisibility(View.INVISIBLE);
             } catch (Exception e) {
                 e.printStackTrace();
             }

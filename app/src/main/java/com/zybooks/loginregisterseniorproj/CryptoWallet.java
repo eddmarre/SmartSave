@@ -27,8 +27,8 @@ private Button button6;
         });
     }
 public void openCryptoTransactions() {
-    Intent intent = new Intent(this, CryptoTransactions.class);
-    startActivity(intent);
+  //  Intent intent = new Intent(CryptoWallet.this, CryptoTransactions.class);
+   // startActivity(intent);
 
 }
 
