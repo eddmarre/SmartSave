@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegisterSeniorProj">
         <activity
+            android:name=".ShowCurrencyInformations"
+            android:exported="false" />
+        <activity
             android:name=".CryptoTransactions"
             android:exported="false" />
         <activity
