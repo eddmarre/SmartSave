@@ -142,48 +142,6 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:fontFamily="serif"
-                android:text="Placeholder"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:hint="0.00"
-                android:padding="5dp"
-                android:textColor="#000047"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:fontFamily="serif"
-                android:text="Placeholder"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:hint="0.00"
-                android:padding="5dp"
-                android:textColor="#000047"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
 
             <Button
                 android:id="@+id/sendbtn1"
@@ -197,6 +155,13 @@
                 android:text="Send"
                 android:textColor="#fff"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/cryptoconvertbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="convertonclick"
+                android:text="Convert" />
 
         </LinearLayout>
 
