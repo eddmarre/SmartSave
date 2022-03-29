@@ -49,6 +49,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/recipientID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="100dp"
@@ -84,7 +85,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/usdvalueid"
+                android:id="@+id/btcvalueid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -106,6 +107,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/usdvalueid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -128,6 +130,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/descid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -189,7 +192,7 @@
                 android:layout_margin="5dp"
                 android:background="#000000"
                 android:fontFamily="serif"
-                android:onClick="doSend1"
+                android:onClick="doSend"
                 android:text="Send"
                 android:textColor="#fff"
                 android:textStyle="bold" />
