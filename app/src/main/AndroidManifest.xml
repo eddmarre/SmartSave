@@ -24,6 +24,9 @@
             android:name=".ShowCompanies"
             android:exported="false" />
         <activity
+            android:name=".CryptoTransactionsList"
+            android:exported="false" />
+        <activity
             android:name=".CompanyStockInformation"
             android:exported="false" />
         <activity

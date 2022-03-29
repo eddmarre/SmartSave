@@ -52,11 +52,11 @@ public EditText _usdvalueid;
 
     public void doSend(View view) {
         Intent currentintent=new Intent(this,CryptoTransactionsList.class);
-       // Intent intent=new Intent(CryptoTransactions.this,CryptoTransactionsList.class);
-//        intent.putExtra("BTCVal",_btcvalueid.getText().toString());
-//        intent.putExtra("Recip",_recipientID.getText().toString());
-//        intent.putExtra("DescID",_descid.getText().toString());
-//        intent.putExtra("UsdID",_usdvalueid.getText().toString());
+        Intent intent=new Intent(CryptoTransactions.this,CryptoTransactionsList.class);
+        intent.putExtra("BTCVal",_btcvalueid.getText().toString());
+        intent.putExtra("Recip",_recipientID.getText().toString());
+        intent.putExtra("DescID",_descid.getText().toString());
+        intent.putExtra("UsdID",_usdvalueid.getText().toString());
         startActivity(currentintent);
     }
 
