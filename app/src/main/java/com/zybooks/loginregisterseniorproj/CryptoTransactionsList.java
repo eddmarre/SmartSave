@@ -25,15 +25,10 @@ public class CryptoTransactionsList extends AppCompatActivity {
         _DESCID = findViewById(R.id.showDescTxtView);
         _DESCID.setText("");
 
-        TextView _USDID;
-        _USDID = findViewById(R.id.showUSDValue);
-        _USDID.setText("");
-
         Bundle extras=getIntent().getExtras();
         String BTCValue="";
         String Recip="";
         String Desc="";
-        String USDValue="";
         if(extras!=null)
         {
             BTCValue=extras.getString("BTCVal");
@@ -44,9 +39,6 @@ public class CryptoTransactionsList extends AppCompatActivity {
 
             Desc=extras.getString("DescID");
             _DESCID.setText(Desc);
-
-            USDValue=extras.getString("UsdID");
-            _USDID.setText(USDValue);
         }
 
 

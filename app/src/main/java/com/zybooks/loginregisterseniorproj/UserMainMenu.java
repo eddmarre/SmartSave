@@ -29,9 +29,4 @@ public class UserMainMenu extends AppCompatActivity {
         Intent n=new Intent(this,CryptoWallet.class);
         startActivity(n);
     }
-
-    public void CurrencyExchange(View view) {
-        Intent n=new Intent(this,ShowCurrencyInformations.class);
-        startActivity(n);
-    }
 }
