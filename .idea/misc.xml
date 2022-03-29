@@ -5,16 +5,21 @@
       <map>
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1065" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/drawable/btcimage_background.xml" value="0.1955" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/drawable/flip_background.xml" value="0.1065" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/drawable/flip_foreground.xml" value="0.1065" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1065" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/drawable/qrcode_background.xml" value="0.1955" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/drawable/satoshi_background.xml" value="0.1065" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_company_stock_information.xml" value="0.33177083333333335" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto_currency_rv_adapter.xml" value="0.34692028985507245" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto_transactions.xml" value="0.16134751773049646" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto_transactions_list.xml" value="0.17831813576494426" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto_wallet.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_register.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_show_companies.xml" value="0.17395833333333333" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_show_currency_informations.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_stock_market.xml" value="0.18802083333333333" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_user_main_menu.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/mipmap-hdpi/qrcode.xml" value="0.1955" />
