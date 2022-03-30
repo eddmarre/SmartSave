@@ -18,7 +18,7 @@
 -->
     <androidx.cardview.widget.CardView
         android:layout_width="372dp"
-        android:layout_height="298dp"
+        android:layout_height="0dp"
         android:layout_margin="10dp"
         android:layout_weight="1"
         card_view:cardBackgroundColor="#0a3628"
@@ -107,6 +107,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+
             <EditText
                 android:id="@+id/usdvalueid"
                 android:layout_width="match_parent"
@@ -142,6 +143,19 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/cryptoconvertbtn"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:onClick="convertonclick"
+                android:text="@string/_convertbtn"
+                android:fontFamily="serif"
+                android:textColor="#fff"
+                android:background="#000000"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
 
             <Button
                 android:id="@+id/sendbtn1"
@@ -152,16 +166,12 @@
                 android:background="#000000"
                 android:fontFamily="serif"
                 android:onClick="doSend"
-                android:text="Send"
+                android:text="@string/_sendbtn"
                 android:textColor="#fff"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
 
-            <Button
-                android:id="@+id/cryptoconvertbtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="convertonclick"
-                android:text="Convert" />
 
         </LinearLayout>
 

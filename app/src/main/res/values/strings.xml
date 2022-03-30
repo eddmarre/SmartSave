@@ -6,4 +6,15 @@
     <string name="scanhere">Scan here for Bitcoin address!</string>
     <string name="todo2">TODO2</string>
     <string name="transactions">Transactions</string>
+    <string name="recipient">Recipient:</string>
+    <string name="bitcoin_sent">Bitcoin Sent:</string>
+    <string name="transaction_list">Transaction List</string>
+    <string name="value_in_usd">Value in USD:</string>
+    <string name="textview">TextView</string>
+    <string name="description">Description:</string>
+    <string name="_reciptxtview">TextView</string>
+    <string name="_usdvaluetxtview">TextView</string>
+    <string name="btcsenttxtview">TextView</string>
+    <string name="_sendbtn">Send</string>
+    <string name="_convertbtn">Convert</string>
 </resources>
