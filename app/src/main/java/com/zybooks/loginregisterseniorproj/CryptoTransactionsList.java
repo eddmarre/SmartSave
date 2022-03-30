@@ -10,6 +10,10 @@ public class CryptoTransactionsList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crypto_transactions_list);
 
