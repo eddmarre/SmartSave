@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+//Burhan
 public class WeeklyInExp extends AppCompatActivity {
     TextView text01, income, expense, d1, d2, d3, d4, d5, d6, d7;
     EditText eva, eva1, eva2, eva3, eva4, eva5, eva6, eva7, eva8, eva9, eva10, eva11, eva12, eva13;

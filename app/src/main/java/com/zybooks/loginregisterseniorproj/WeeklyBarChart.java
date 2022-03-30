@@ -16,7 +16,7 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
 import java.util.ArrayList;
-
+//Tino
 public class WeeklyBarChart extends AppCompatActivity {
 
     // variable for our bar chart
