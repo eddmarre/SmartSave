@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
-
+//Jordan
 public class CryptoTransactionsList extends AppCompatActivity {
 
     @Override

@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegisterSeniorProj">
         <activity
+            android:name=".WeeklyInExp"
+            android:exported="false" />
+        <activity
+            android:name=".WeeklyBarChart"
+            android:exported="false" />
+        <activity
+            android:name=".PieChartExpense"
+            android:exported="false" />
+        <activity
+            android:name=".MonthlyPieCalc"
+            android:exported="false" />
+        <activity
+            android:name=".ReportingMain"
+            android:exported="false" />
+        <activity
             android:name=".ShowCurrencyInformations"
             android:exported="false" />
         <activity

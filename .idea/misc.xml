@@ -11,12 +11,20 @@
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_company_stock_information.xml" value="0.33177083333333335" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto_currency_rv_adapter.xml" value="0.34692028985507245" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto_transactions.xml" value="0.13196555217831812" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto_transactions_list.xml" value="0.13196555217831812" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto_wallet.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_monthly_pie_calc.xml" value="0.34692028985507245" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_pie_chart_expense.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_register.xml" value="0.34692028985507245" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_reporting_main.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_show_companies.xml" value="0.17395833333333333" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_show_currency_informations.xml" value="0.13196555217831812" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_stock_market.xml" value="0.18802083333333333" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_user_main_menu.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_weekly_bar_chart.xml" value="0.34692028985507245" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_weekly_in_exp.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/mipmap-hdpi/qrcode.xml" value="0.1955" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/drawable/splash_screen.xml" value="0.2275" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_crypto.xml" value="0.2046875" />
@@ -31,15 +39,11 @@
         <entry key="app/src/main/res/layout/activity_company_stock_information.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_crypto.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_crypto_currency_rv_adapter.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_crypto_transactions.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_crypto_transactions_list.xml" value="0.3125" />
+        <entry key="app/src/main/res/layout/activity_crypto_transactions.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_crypto_transactions_list.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_crypto_wallet.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_show_companies.xml" value="0.24791666666666667" />
-        <entry key="app/src/main/res/layout/activity_show_currency_informations.xml" value="0.24791666666666667" />
-        <entry key="app/src/main/res/layout/activity_stock_market.xml" value="0.24791666666666667" />
-        <entry key="app/src/main/res/layout/activity_user_main_menu.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/btcimage.xml" value="0.1725" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/qrcode.xml" value="0.1725" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/qrcode_round.xml" value="0.1725" />

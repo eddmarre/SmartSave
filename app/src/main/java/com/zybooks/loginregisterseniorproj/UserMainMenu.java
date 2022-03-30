@@ -34,4 +34,9 @@ public class UserMainMenu extends AppCompatActivity {
         Intent n=new Intent(this,ShowCurrencyInformations.class);
         startActivity(n);
     }
+
+    public void ReportIncomeExpense(View view) {
+        Intent n = new Intent(this,ReportingMain.class);
+        startActivity(n);
+    }
 }
