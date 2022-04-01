@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.github.mikephil.charting.charts.CandleStickChart;
 //Eddie
 public class StockMarket extends AppCompatActivity {
     EditText enteredText;
@@ -16,7 +15,7 @@ public class StockMarket extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_market);
         getSupportActionBar().setTitle("Stock Market");
-        enteredText=findViewById(R.id.enterSymbolText);
+        enteredText=findViewById(R.id.enterCryptoSymbolText);
     }
 
     public void ConnectButton(View view) {

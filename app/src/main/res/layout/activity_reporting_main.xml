@@ -13,26 +13,23 @@
         android:id="@+id/wInExp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="316dp"
-        android:layout_marginEnd="159dp"
+        android:layout_marginTop="70dp"
         android:onClick="wInExp"
         android:text="Weekly Income/Expenses"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/mexpense" />
 
     <TextView
         android:id="@+id/UtextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
-        android:layout_marginEnd="140dp"
         android:text="Report Charts"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -40,12 +37,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="105dp"
-        android:onClick="mexpense"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="104dp"
+        android:onClick="mexpense"
         android:text="Monthly Expense BreakDown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/UtextView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

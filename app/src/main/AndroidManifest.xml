@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegisterSeniorProj">
         <activity
+            android:name=".CryptoCurrencyInformation"
+            android:exported="false" />
+        <activity
+            android:name=".CryptoMarket"
+            android:exported="false" />
+        <activity
             android:name=".WeeklyInExp"
             android:exported="false" />
         <activity

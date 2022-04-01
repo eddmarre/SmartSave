@@ -39,4 +39,9 @@ public class UserMainMenu extends AppCompatActivity {
         Intent n = new Intent(this,ReportingMain.class);
         startActivity(n);
     }
+
+    public void CryptoMarket(View view) {
+        Intent n = new Intent(this,CryptoMarket.class);
+        startActivity(n);
+    }
 }
