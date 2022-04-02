@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="250dp"
         android:ems="10"
-        android:hint=" Try IBM"
+        android:hint=" Try BTC"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textAlignment="center"

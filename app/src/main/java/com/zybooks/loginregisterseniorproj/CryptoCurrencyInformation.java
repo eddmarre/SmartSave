@@ -47,7 +47,7 @@ public class CryptoCurrencyInformation extends AppCompatActivity {
             text.setText(symbol);
         }
 
-       // chart=(CandleStickChart) findViewById(R.id.chart);
+        chart=(CandleStickChart) findViewById(R.id.cryptoChart);
 
         //Create new async task
         CryptoSearchTask cryptoSearchTask=new CryptoSearchTask();
@@ -144,11 +144,11 @@ public class CryptoCurrencyInformation extends AppCompatActivity {
                         dailyStock) {
                     sb.append(stock.toString());
                 }
-                text.setText(sb.toString());
+                //text.setText(sb.toString());
                 //create company's information from data obtained
                 Company currentCompany= new Company(SYMBOL,dailyStock);
                 //populate the chart with the company's data
-               //setCandleStickChart(currentCompany);
+               setCandleStickChart(currentCompany);
             } catch (Exception e) {
                 e.printStackTrace();
                 text.setText("error setting data");
