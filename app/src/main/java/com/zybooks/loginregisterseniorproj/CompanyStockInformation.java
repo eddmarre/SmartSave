@@ -27,6 +27,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+
 //Eddie
 public class CompanyStockInformation extends AppCompatActivity {
     TextView text;
@@ -151,6 +153,8 @@ public class CompanyStockInformation extends AppCompatActivity {
     public void setCandleStickChart(Company company)
     {
         ArrayList<StockData> companyStock=company.getCompanyStockPrices();
+        //reverses data in chart to appear the proper way
+        Collections.reverse(companyStock);
         //gets all daily dates for company stock, shortens date to format MM-DD and adds it to list
         ArrayList<String> stockDate=new ArrayList<>();
         for (StockData stock:companyStock

@@ -13,13 +13,13 @@ public class CryptoMarket extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crypto_market);
+        getSupportActionBar().setTitle("Crypto Market");
         enteredText=findViewById(R.id.enterCryptoSymbolText);
     }
 
     public void BrowseCryptoCurrencies(View view) {
-//            Intent intent=new Intent(this,CryptoCurrencyInformation.class);
-//            intent.putExtra("SYMBOL",enteredText.getText().toString());
-//            startActivity(intent);
+    Intent n = new Intent(this,ShowCryptoCurrencies.class);
+    startActivity(n);
     }
 
     public void SearchCrypto(View view) {

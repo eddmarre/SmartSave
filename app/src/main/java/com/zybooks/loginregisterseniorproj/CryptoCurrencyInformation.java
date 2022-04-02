@@ -27,6 +27,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class CryptoCurrencyInformation extends AppCompatActivity {
     TextView text;
@@ -159,6 +161,8 @@ public class CryptoCurrencyInformation extends AppCompatActivity {
     public void setCandleStickChart(Company company)
     {
         ArrayList<StockData> companyStock=company.getCompanyStockPrices();
+        //reverses data in chart to appear the proper way
+        Collections.reverse(companyStock);
         //gets all daily dates for company stock, shortens date to format MM-DD and adds it to list
         ArrayList<String> stockDate=new ArrayList<>();
         for (StockData stock:companyStock
@@ -181,7 +185,6 @@ public class CryptoCurrencyInformation extends AppCompatActivity {
             candleEntries.add(new CandleEntry(i,stock.getHigh(),stock.getLow(),stock.getOpen(),stock.getClose()));
             i++;
         }
-
         //sets up the chart's appearance and makes the company symbol the chart's label
         CandleDataSet candleDataSet=new CandleDataSet(candleEntries,company.getCompanySymbol());
         candleDataSet.setColor(Color.WHITE);
