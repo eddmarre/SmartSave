@@ -48,13 +48,14 @@
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/cryptoMarket"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="146dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="140dp"
-        android:text="Visual"
+        android:text="Crypto Market"
+        android:onClick="CryptoMarket"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
@@ -70,7 +71,7 @@
         android:text="Cryto Wallet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/cryptoMarket" />
 
     <Button
         android:id="@+id/button3"

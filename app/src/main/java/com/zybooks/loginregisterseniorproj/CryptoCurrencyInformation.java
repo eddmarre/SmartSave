@@ -27,38 +27,40 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
-//Eddie
-public class CompanyStockInformation extends AppCompatActivity {
+public class CryptoCurrencyInformation extends AppCompatActivity {
     TextView text;
     CandleStickChart chart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_company_stock_information);
-        getSupportActionBar().setTitle("Daily Stock");
-        //Get data sent over through activity intent
+        setContentView(R.layout.activity_crypto_currency_information);
+
+        getSupportActionBar().setTitle("Daily Crypto");
+       // Get data sent over through activity intent
         Bundle extras=getIntent().getExtras();
         String symbol="";
         if(extras!=null)
         {
             symbol=extras.getString("SYMBOL");
-            text=findViewById(R.id.textView);
+            text=findViewById(R.id.testText);
             text.setText(symbol);
         }
 
-        chart=(CandleStickChart) findViewById(R.id.chart);
+        chart=(CandleStickChart) findViewById(R.id.cryptoChart);
 
         //Create new async task
-        CompanyStockSearchTask companyStockSearchTask=new CompanyStockSearchTask();
+        CryptoSearchTask cryptoSearchTask=new CryptoSearchTask();
         //Set Search Symbol
-        companyStockSearchTask.SetSymbol(symbol);
+        cryptoSearchTask.SetSymbol(symbol);
         //Start api connection
-        companyStockSearchTask.execute();
+        cryptoSearchTask.execute();
     }
+
     //Eddie
-    public class CompanyStockSearchTask extends AsyncTask<String,String,String>
+    public class CryptoSearchTask extends AsyncTask<String,String,String>
     {
         String result;
         String SYMBOL;
@@ -77,8 +79,8 @@ public class CompanyStockInformation extends AppCompatActivity {
             StringBuilder sb = new StringBuilder();
             URL url;
             HttpURLConnection urlConnection = null;
-            try {
-                String uri = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="+SYMBOL+"&apikey="+APIKey;
+            try {//"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=BTC&market=USD&apikey=50BZM4QNXYEYF7K3;
+                String uri = "https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol="+SYMBOL+"&market=USD&apikey="+APIKey;
                 url= new URL(uri);
                 urlConnection=(HttpURLConnection) url.openConnection();
                 InputStream inputStream = urlConnection.getInputStream();
@@ -110,42 +112,48 @@ public class CompanyStockInformation extends AppCompatActivity {
             super.onPostExecute(s);
             try {
                 JSONObject root = new JSONObject(result);
-                JSONObject metaData=root.getJSONObject("Meta Data");
-                JSONObject timeSeriesDaily=root.getJSONObject("Time Series (Daily)");
+               // JSONObject metaData=root.getJSONObject("Meta Data");
+                JSONObject timeSeriesDaily=root.getJSONObject("Time Series (Digital Currency Daily)");
 
-                String companySymbol=metaData.getString("2. Symbol");
-                String lastRefreshed=metaData.getString("3. Last Refreshed");
-                String timeZone=metaData.getString("5. Time Zone");
-
+//                String companySymbol=metaData.getString("2. Symbol");
+//                String lastRefreshed=metaData.getString("3. Last Refreshed");
+//                String timeZone=metaData.getString("5. Time Zone");
+//
                 JSONArray dates =timeSeriesDaily.names();
 
                 //put all data into a list
                 ArrayList<StockData> dailyStock = new ArrayList<>();
-
+                StringBuilder sb=new StringBuilder();
                 for (int i=0;i<dates.length();i++)
                 {
                     String stockDate=dates.getString(i);
-                    String openValue=timeSeriesDaily.getJSONObject(stockDate).getString("1. open");
-                    String highValue=timeSeriesDaily.getJSONObject(stockDate).getString("2. high");
-                    String lowValue=timeSeriesDaily.getJSONObject(stockDate).getString("3. low");
-                    String closeValue=timeSeriesDaily.getJSONObject(stockDate).getString("4. close");
-                    String volumeValue=timeSeriesDaily.getJSONObject(stockDate).getString("5. volume");
+                    String openValue=timeSeriesDaily.getJSONObject(stockDate).getString("1a. open (USD)");
+                    String highValue=timeSeriesDaily.getJSONObject(stockDate).getString("2a. high (USD)");
+                    String lowValue=timeSeriesDaily.getJSONObject(stockDate).getString("3a. low (USD)");
+                    String closeValue=timeSeriesDaily.getJSONObject(stockDate).getString("4a. close (USD)");
+                   // String volumeValue=timeSeriesDaily.getJSONObject(stockDate).getString("5. volume");
 
                     float iOpenValue= Float.parseFloat(openValue);
                     float iHighValue=Float.parseFloat(highValue);
                     float iLowValue=Float.parseFloat(lowValue);
                     float iCloseValue=Float.parseFloat(closeValue);
-                    int iVolumeValue=Integer.parseInt(volumeValue);
+                   // int iVolumeValue=Integer.parseInt(volumeValue);
 
                     //create a daily stock
-                    dailyStock.add(new StockData(stockDate,iOpenValue,iHighValue,iLowValue,iCloseValue,iVolumeValue));
+                    dailyStock.add(new StockData(stockDate,iOpenValue,iHighValue,iLowValue,iCloseValue,/*iVolumeValue*/0));
                 }
+                for (StockData stock :
+                        dailyStock) {
+                    sb.append(stock.toString());
+                }
+                //text.setText(sb.toString());
                 //create company's information from data obtained
                 Company currentCompany= new Company(SYMBOL,dailyStock);
                 //populate the chart with the company's data
-                setCandleStickChart(currentCompany);
+               setCandleStickChart(currentCompany);
             } catch (Exception e) {
                 e.printStackTrace();
+                text.setText("error setting data");
             }
         }
     }
@@ -177,7 +185,6 @@ public class CompanyStockInformation extends AppCompatActivity {
             candleEntries.add(new CandleEntry(i,stock.getHigh(),stock.getLow(),stock.getOpen(),stock.getClose()));
             i++;
         }
-
         //sets up the chart's appearance and makes the company symbol the chart's label
         CandleDataSet candleDataSet=new CandleDataSet(candleEntries,company.getCompanySymbol());
         candleDataSet.setColor(Color.WHITE);
