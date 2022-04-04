@@ -83,12 +83,12 @@ public class Register extends AppCompatActivity {
     //Eddie
     private void RegisterUserInDatabase()
     {
-        AccountUserTable accountUserTable = new AccountUserTable(this);
+        SQLTableManager SQLTableManager = new SQLTableManager(this);
 
         String phoneNumberString= entry5.getText().toString();
         int phoneNumber=Integer.parseInt(phoneNumberString);
 
-        boolean registerNewUser=accountUserTable.InsertAccountUser(entry1.getText().toString(),entry2.getText().toString(),
+        boolean registerNewUser= SQLTableManager.InsertAccountUser(entry1.getText().toString(),entry2.getText().toString(),
                 entry6.getText().toString(), entry3.getText().toString(),phoneNumber,entry4.getText().toString());
 
         if(registerNewUser)

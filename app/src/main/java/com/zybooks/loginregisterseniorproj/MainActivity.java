@@ -2,9 +2,7 @@ package com.zybooks.loginregisterseniorproj;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     EditText entry1, entry4;
 
     //Eddie
-    private AccountUserTable _accountUserTable;
+    private SQLTableManager _SQLTableManager;
     private List<String> userNames;
     private List<String> passwords;
     private boolean isValidLogin;
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //Eddie
     private void CreateOrAddUserTable() {
-        _accountUserTable=new AccountUserTable(this);
+        _SQLTableManager =new SQLTableManager(this);
     }
     /*On Start and On Stop will check to make sure User logins don't try to run after activity
     is shut down */
@@ -79,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     //Eddie
     private void CheckIfValidUserNameAndPassword() {
         //retrieves the data from the database
-        Cursor tableData=_accountUserTable.GetTableData();
+        Cursor tableData= _SQLTableManager.GetTableData("Account_User");
         if(tableData.getCount()==0)
         {
             Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
@@ -131,28 +129,29 @@ public class MainActivity extends AppCompatActivity {
         Intent n = new Intent(this, Register.class);
         startActivity(n);
     }
+
     //Eddie
     //for debugging purposes
-    public void GetUserInfo(View view) {
-        Cursor tableData = _accountUserTable.GetTableData();
-        if (tableData.getCount() == 0) {
-            Toast.makeText(this, "nothing in database", Toast.LENGTH_SHORT).show();
-        } else {
-            try {
-
-                while (tableData.moveToNext()) {
-                    int passwordIndex = 6;
-                    int emailIndex = 4;
-                    userNames.add(tableData.getString(emailIndex));
-                    passwords.add(tableData.getString(passwordIndex));
-                }
-
-                Toast.makeText(this, userNames.get(1) +" "+ passwords.get(1), Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                Toast.makeText(this, "couldn't show user data", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
+//    public void GetUserInfo(View view) {
+//        Cursor tableData = _accountUserTable.GetTableData();
+//        if (tableData.getCount() == 0) {
+//            Toast.makeText(this, "nothing in database", Toast.LENGTH_SHORT).show();
+//        } else {
+//            try {
+//
+//                while (tableData.moveToNext()) {
+//                    int passwordIndex = 6;
+//                    int emailIndex = 4;
+//                    userNames.add(tableData.getString(emailIndex));
+//                    passwords.add(tableData.getString(passwordIndex));
+//                }
+//
+//                Toast.makeText(this, userNames.get(1) +" "+ passwords.get(1), Toast.LENGTH_SHORT).show();
+//            } catch (Exception e) {
+//                Toast.makeText(this, "couldn't show user data", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
 
     public void LoginToApp2(View view) {
         Intent n = new Intent(this, UserMainMenu.class);
