@@ -3,6 +3,7 @@ package com.zybooks.loginregisterseniorproj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
     private List<String> passwords;
     private boolean isValidLogin;
     private static boolean isActivityActive;
+    private Intent loginSuccessIntent;
+
+
+    private static final String SHARED_PREFS="sharedPrefs";
+    private static final String TEXT="text";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         passwords=new ArrayList<>();
         
         isValidLogin=false;
+
         CreateOrAddUserTable();
     }
     //Eddie
@@ -77,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
     //Eddie
     private void CheckIfValidUserNameAndPassword() {
         //retrieves the data from the database
-        Cursor tableData= _SQLTableManager.GetTableData("Account_User");
-        if(tableData.getCount()==0)
+        Cursor accountUserTableData= _SQLTableManager.GetTableData("Account_User");
+        if(accountUserTableData.getCount()==0)
         {
             Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
         }
@@ -86,11 +93,11 @@ public class MainActivity extends AppCompatActivity {
         {
             try {
                 //reads all data from the database and stores emails & passwords
-                while(tableData.moveToNext()) {
+                while(accountUserTableData.moveToNext()) {
                     int passwordIndex=6;
                     int emailIndex =4;
-                    userNames.add(tableData.getString(emailIndex));
-                    passwords.add(tableData.getString(passwordIndex));
+                    userNames.add(accountUserTableData.getString(emailIndex));
+                    passwords.add(accountUserTableData.getString(passwordIndex));
                 }
             }
             catch(Exception e)
@@ -109,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(MainActivity.this, "Successful login", Toast.LENGTH_SHORT).show();
                     isValidLogin=true;
-                    ChangeSceneAfterLogin();
+                    SaveUserName(username.getText().toString());
+                    ChangeActivityAfterLogin(_username);
                 }
                 else
                 {
@@ -119,10 +127,52 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     //Eddie
-    private void ChangeSceneAfterLogin() {
-        Intent n = new Intent(this, UserMainMenu.class);
-        startActivity(n);
+    private void ChangeActivityAfterLogin(String userName) {
+        //InsertAllTablesGarbageValues();
+        loginSuccessIntent= new Intent(this, UserMainMenu.class);
+        startActivity(loginSuccessIntent);
         finish();
+    }
+    //Eddie Debug Function
+    //**Uncomment Line 133 to work**
+    private void InsertAllTablesGarbageValues()
+    {
+        SQLTableManager SQLTableManager = new SQLTableManager(this);
+
+        boolean cryptoWalletSuccess=SQLTableManager.InsertCryptoWallet(GetCurrentUserName(),"AAA",1,100,"today","password");
+        boolean stockWalletSuccess=SQLTableManager.InsertStockWallet(GetCurrentUserName(),"BTC",1,100,"today","password");
+
+        boolean userIncomeSuccess=SQLTableManager.InsertUserIncome(GetCurrentUserName(),"nothing yet",500,"today");
+        boolean userExpenseSuccess =SQLTableManager.InsertUserExpense(GetCurrentUserName(),"nothing yet",500,"today");
+
+        boolean familyUserSuccess=SQLTableManager.InsertFamilyUser(GetCurrentUserName(),"COOLGUY","John","Doe","today","Son");
+
+        boolean familyUserIncomeSuccess=SQLTableManager.InsertFamilyUserIncome("COOLGUY","nothing yet",500,"today");
+        boolean familyUserExpenseSuccess=SQLTableManager.InsertFamilyUserExpense("COOLGUY","nothing yet",500,"today");
+
+        if(cryptoWalletSuccess&&stockWalletSuccess&&userIncomeSuccess&& userExpenseSuccess &&familyUserSuccess&&familyUserIncomeSuccess&&familyUserExpenseSuccess)
+        {
+            //if they all insert successfully do nothing
+        }
+        else
+        {
+            Toast.makeText(this,"one of the table inserts were messed up",Toast.LENGTH_SHORT);
+        }
+    }
+
+    private void SaveUserName(String userName) {
+       // SharedPreferences sharedPreferences =getSharedPreferences("sharedPreferencs",MODE_PRIVATE);
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putString(TEXT,userName);
+        editor.apply();
+    }
+
+    private String GetCurrentUserName()
+    {
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        String currentUserName=sharedPreferences.getString(TEXT,"");
+        return currentUserName;
     }
     //Tino
     public void Register(View v) { //switch to registration activity

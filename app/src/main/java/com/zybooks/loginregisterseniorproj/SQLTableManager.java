@@ -85,7 +85,15 @@ public class SQLTableManager extends SQLiteOpenHelper {
         FamilyExpense(db);
     }
     private void AccountUser(SQLiteDatabase db) {
-        db.execSQL("create table "+ Account_User_TABLE_NAME +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,FIRST_NAME TEXT,LAST_NAME TEXT,DOB TEXT, EMAIL TEXT UNIQUE,PHONE INT,PASSWORD TEXT,ADMIN INTEGER)");
+        db.execSQL("create table "+ Account_User_TABLE_NAME
+                +" ("+Account_User_COL_1+" Integer Primary Key Autoincrement, "
+                +Account_User_COL_2+" text, "
+                +Account_User_COL_3+" text, "
+                +Account_User_COL_4+" text, "
+                +Account_User_COL_5+" text unique, "
+                +Account_User_COL_6+" int, "
+                +Account_User_COL_7+" text, "
+                +Account_User_Col_8+" integer)");
     }
 
     private void StockWallet(SQLiteDatabase db)
@@ -152,6 +160,7 @@ public class SQLTableManager extends SQLiteOpenHelper {
                 + Family_User_Expense_Col_4 +" text, "
                 +"FOREIGN KEY ("+ Family_User_Expense_Col_1 +") REFERENCES "+ Family_User_Table_Name +"("+Family_User_Col_2+"))");
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+ Account_User_TABLE_NAME);
@@ -182,6 +191,159 @@ public class SQLTableManager extends SQLiteOpenHelper {
             return true;
         }
     }
+    public boolean InsertStockWallet(String userName,String companySymbol, float amountOwned, float currentPrice,String purchaseDate,String password)
+    {
+
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(Stock_Wallet_Col_1,userName);
+        contentValues.put(Stock_Wallet_Col_2,companySymbol);
+        contentValues.put(Stock_Wallet_Col_3,amountOwned);
+        contentValues.put(Stock_Wallet_Col_4,currentPrice);
+        contentValues.put(Stock_Wallet_Col_5,purchaseDate);
+        //checks to see if actual data is inserted
+        long result=db.insert(Stock_Wallet_TABLE_NAME,null,contentValues);
+        if(result==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    public boolean InsertCryptoWallet(String userName,String cryptoSymbol, float amountOwned, float currentPrice,String purchaseDate,String password)
+    {
+
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(Crypto_Wallet_Col_1,userName);
+        contentValues.put(Crypto_Wallet_Col_2,cryptoSymbol);
+        contentValues.put(Crypto_Wallet_Col_3,amountOwned);
+        contentValues.put(Crypto_Wallet_Col_4,currentPrice);
+        contentValues.put(Crypto_Wallet_Col_5,purchaseDate);
+        //checks to see if actual data is inserted
+        long result=db.insert(Crypto_Wallet_TABLE_NAME,null,contentValues);
+        if(result==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean InsertUserExpense(String userName,String description, float lostRevenue, String date)
+    {
+
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(Expense_Col_1,userName);
+        contentValues.put(Expense_Col_2,description);
+        contentValues.put(Expense_Col_3,lostRevenue);
+        contentValues.put(Expense_Col_4,date);
+        //checks to see if actual data is inserted
+        long result=db.insert(EXPENSE_TABLE_NAME,null,contentValues);
+        if(result==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean InsertUserIncome(String userName,String description, float gainedRevenue, String date)
+    {
+
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(Income_Col_1,userName);
+        contentValues.put(Income_Col_2,description);
+        contentValues.put(Income_Col_3,gainedRevenue);
+        contentValues.put(Income_Col_4,date);
+        //checks to see if actual data is inserted
+        long result=db.insert(INCOME_TABLE_NAME,null,contentValues);
+        if(result==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean InsertFamilyUser(String accountOwnerUserName,String familyMemberUserName, String firstName, String lastName,String dateOfBirth, String relationToAccountOwner)
+    {
+
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(Family_User_Col_1,accountOwnerUserName);
+        contentValues.put(Family_User_Col_2,familyMemberUserName);
+        contentValues.put(Family_User_Col_3,firstName);
+        contentValues.put(Family_User_Col_4,lastName);
+        contentValues.put(Family_User_Col_5,dateOfBirth);
+        contentValues.put(Family_User_Col_6,relationToAccountOwner);
+        //checks to see if actual data is inserted
+        long result=db.insert(Family_User_Table_Name,null,contentValues);
+        if(result==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean InsertFamilyUserExpense(String familyMemberUserName,String description, float lostRevenue, String date)
+    {
+
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(Family_User_Expense_Col_1,familyMemberUserName);
+        contentValues.put(Family_User_Expense_Col_2,description);
+        contentValues.put(Family_User_Expense_Col_3,lostRevenue);
+        contentValues.put(Family_User_Expense_Col_4,date);
+        //checks to see if actual data is inserted
+        long result=db.insert(Family_User_EXPENSE_TABLE_NAME,null,contentValues);
+        if(result==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean InsertFamilyUserIncome(String familyMemberUserName,String description, float gainedRevenue, String date)
+    {
+
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(Family_User_Income_Col_1,familyMemberUserName);
+        contentValues.put(Family_User_Income_Col_2,description);
+        contentValues.put(Family_User_Income_Col_3,gainedRevenue);
+        contentValues.put(Family_User_Income_Col_4,date);
+        //checks to see if actual data is inserted
+        long result=db.insert(Family_User_INCOME_TABLE_NAME,null,contentValues);
+        if(result==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+
+
+
     //*WARNING* should work with a bool using values 0 and 1 might cause errors in the future be aware *WARNING*
     public boolean InsertAccountAdmin(String firstName,String lastName, String dob, String email,int phone,String password,Boolean admin)
     {
