@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegisterSeniorProj">
         <activity
+            android:name=".TextReport"
+            android:exported="false" />
+        <activity
+            android:name=".MonthlyReport"
+            android:exported="false" />
+        <activity
             android:name=".UserStockWallet"
             android:exported="false" />
         <activity

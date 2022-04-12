@@ -60,53 +60,98 @@ public class PieChartExpense extends AppCompatActivity {
     private void loadPieChartData() {
         //get data from table
         Intent recInt = getIntent();
-//        float finalPrintedFloat = 0f;
-//        //initialize
-//        SQLTableManager anotherTable = new SQLTableManager(this);
-//        //create temp data holder
-//        Cursor someOtherTable = anotherTable.GetTableData("Account_User_Expense");
-//        //create a list to store all the data from the table
-//        ArrayList<Float> allLostRevenues = new ArrayList<>();
-//        //make sure table isnt empty
-//        if (someOtherTable.getCount() == 0) {
-//            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
-//        } else {
-//            //if not empty try
-//            try {
-//                //reads all data from the database and compares to what we are looking for
-//                while (someOtherTable.moveToNext()) {
-//                    //constant integer for column number
-//                    //starts from 0
-//                    final int lostRevenueColumnNumber = 2;
-//                    //add data to our list
-//                    allLostRevenues.add(someOtherTable.getFloat(lostRevenueColumnNumber));
-//                }
-//                //toss error if nothing was found in the data search
-//            } catch (Exception e) {
-//                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//        //for each float in the all lost revenue table
-//        for (Float currentFloat :
-//                allLostRevenues) {
-//            //if the data in the database matches the current revenue
-//            if (currentFloat == recInt.getFloatExtra("1", SumA)) {
-//                //store the current float to display later
-//                finalPrintedFloat = currentFloat;
-//            }
-//        }
+       float finalPrintedFloat = 0f;
+       float finalPrintedFloat2 = 0f;
+       float finalPrintedFloat3 = 0f;
+       float finalPrintedFloat4 = 0f;
+       float finalPrintedFloat5 = 0f;
+
+       //initialize
+        SQLTableManager anotherTable = new SQLTableManager(this);
+        //create temp data holder
+        Cursor someOtherTable = anotherTable.GetTableData("Account_User_Expense");
+        //create a list to store all the data from the table
+        ArrayList<Float> allLostRevenues = new ArrayList<>();
+        //make sure table isnt empty
+       if (someOtherTable.getCount() == 0) {
+           Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
+       } else {
+           //if not empty try
+           try {
+               //reads all data from the database and compares to what we are looking for
+                while (someOtherTable.moveToNext()) {
+                    //constant integer for column number
+                    //starts from 0
+                    final int lostRevenueColumnNumber = 2;
+                  //add data to our list
+                   allLostRevenues.add(someOtherTable.getFloat(lostRevenueColumnNumber));
+               }
+               //toss error if nothing was found in the data search
+           } catch (Exception e) {
+               Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
+          }
+      }
+       //for each float in the all lost revenue table
+      for (Float currentFloat :
+               allLostRevenues) {
+           //if the data in the database matches the current revenue
+           if (currentFloat == recInt.getFloatExtra("1", SumA)) {
+               //store the current float to display later
+               finalPrintedFloat = currentFloat;
+           }
+       }
+        for (Float currentFloat2 :
+                allLostRevenues) {
+            //if the data in the database matches the current revenue
+            if (currentFloat2 == recInt.getFloatExtra("2", SumB)) {
+                //store the current float to display later
+                finalPrintedFloat2 = currentFloat2;
+            }
+        }
+
+        for (Float currentFloat3 :
+                allLostRevenues) {
+            //if the data in the database matches the current revenue
+            if (currentFloat3 == recInt.getFloatExtra("3", SumC)) {
+                //store the current float to display later
+                finalPrintedFloat3 = currentFloat3;
+            }
+        }
+
+        for (Float currentFloat4 :
+                allLostRevenues) {
+            //if the data in the database matches the current revenue
+            if (currentFloat4 == recInt.getFloatExtra("4", SumD)) {
+                //store the current float to display later
+                finalPrintedFloat4 = currentFloat4;
+            }
+        }
+
+        for (Float currentFloat5 :
+                allLostRevenues) {
+            //if the data in the database matches the current revenue
+            if (currentFloat5 == recInt.getFloatExtra("5", SumE)) {
+                //store the current float to display later
+                finalPrintedFloat5 = currentFloat5;
+            }
+        }
+
         ArrayList<PieEntry> entries = new ArrayList<>();
-//        //insert into chart
-//        entries.add(new PieEntry(finalPrintedFloat, "AnotherExample"));
+        //insert into chart
+        entries.add(new PieEntry(finalPrintedFloat, "Food & Dining"));
+        entries.add(new PieEntry(finalPrintedFloat2, "Medical"));
+        entries.add(new PieEntry(finalPrintedFloat3, "Entertainment"));
+        entries.add(new PieEntry(finalPrintedFloat4, "Electricity/Gas"));
+        entries.add(new PieEntry(finalPrintedFloat5, "Housing"));
 
 
 
 
-        entries.add(new PieEntry(recInt.getFloatExtra("1", SumA), "Food & Dining"));
-        entries.add(new PieEntry(recInt.getFloatExtra("2", SumB), "Medical"));
-        entries.add(new PieEntry(recInt.getFloatExtra("3", SumC), "Entertainment"));
-        entries.add(new PieEntry(recInt.getFloatExtra("4", SumD), "Electricity/Gas"));
-        entries.add(new PieEntry(recInt.getFloatExtra("5", SumE), "Housing"));
+//        entries.add(new PieEntry(recInt.getFloatExtra("1", SumA), "Food & Dining"));
+//        entries.add(new PieEntry(recInt.getFloatExtra("2", SumB), "Medical"));
+//        entries.add(new PieEntry(recInt.getFloatExtra("3", SumC), "Entertainment"));
+//        entries.add(new PieEntry(recInt.getFloatExtra("4", SumD), "Electricity/Gas"));
+//        entries.add(new PieEntry(recInt.getFloatExtra("5", SumE), "Housing"));
 
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color : ColorTemplate.MATERIAL_COLORS) {

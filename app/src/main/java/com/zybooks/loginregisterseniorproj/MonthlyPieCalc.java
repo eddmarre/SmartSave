@@ -11,12 +11,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 //Tino
-public class MonthlyPieCalc extends AppCompatActivity {
-    EditText ev, ev1, ev2, ev3, ev4, ev5, ev6, ev7, ev8, ev9, ev10, ev11;
+public class
+
+MonthlyPieCalc extends AppCompatActivity {
+    EditText ev, ev1, ev2, ev3, ev4, ev5, ev6, ev7, ev8, ev9, ev10;
     TextView sumOfU;
     TextView sumOfF;
     TextView sumOfM;
     TextView sumOfMe;
+    TextView ev11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,18 +167,22 @@ public class MonthlyPieCalc extends AppCompatActivity {
             n.putExtra("5", SumE);
 
             //intialize
-//            SQLTableManager thisTable = new SQLTableManager(this);
-//
-//            //retrieve data
-//            SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-//            String whatever = sharedPreferences.getString("text", "");
-//            //insert data
-//            boolean testMe =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumA, "10/2/2000");
-//            //test Data
-//             if(!testMe)
-//           {
-//               Toast.makeText(this,"error inserting data",Toast.LENGTH_LONG);
-//           }
+            SQLTableManager thisTable = new SQLTableManager(this);
+
+            //retrieve data
+           SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+            String whatever = sharedPreferences.getString("text", "");
+            //insert data
+            boolean testMe =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumA, "10/2/2000");
+            boolean testMe2 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumB, "10/2/2000");
+            boolean testMe3 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumC, "10/2/2000");
+            boolean testMe4 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumD, "10/2/2000");
+            boolean testMe5 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumE, "10/2/2000");
+            //test Data
+             if(!testMe)
+           {
+               Toast.makeText(this,"error inserting data",Toast.LENGTH_LONG);
+          }
             startActivity(n);
         }
     }
@@ -198,5 +205,42 @@ public class MonthlyPieCalc extends AppCompatActivity {
 
         }
 
+    }
+
+    public void TextReport2(View view) {
+        if (
+                ev10.getText().toString().isEmpty() ||
+                        ev.getText().toString().isEmpty() ||//check if fields are empty then tells you to fill them in if they are
+                        ev1.getText().toString().isEmpty() ||
+                        ev2.getText().toString().isEmpty() ||
+                        ev3.getText().toString().isEmpty() ||
+                        ev4.getText().toString().isEmpty() ||
+                        ev5.getText().toString().isEmpty() ||
+                        ev6.getText().toString().isEmpty() ||
+                        ev7.getText().toString().isEmpty() ||
+                        ev8.getText().toString().isEmpty() ||
+                        ev9.getText().toString().isEmpty()) {
+            Toast.makeText(MonthlyPieCalc.this, "Fill in all fields",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            float g1, sum1, sum2, sum3, sum4, sum5;
+            g1 = Float.parseFloat(ev1.getText().toString());
+            sum1 = Float.parseFloat(sumOfU.getText().toString());
+            sum2 = Float.parseFloat(sumOfF.getText().toString());
+            sum3 = Float.parseFloat(sumOfM.getText().toString());
+            sum4 = Float.parseFloat(sumOfMe.getText().toString());
+            sum5 = Float.parseFloat(ev11.getText().toString());
+
+
+            Intent n = new Intent(this, MonthlyReport.class);
+            n.putExtra("11", g1);
+            n.putExtra("12", sum1);
+            n.putExtra("13", sum2);
+            n.putExtra("14", sum3);
+            n.putExtra("15", sum4);
+            n.putExtra("16", sum5);
+
+            startActivity(n);
+        }
     }
 }

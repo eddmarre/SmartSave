@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context=".MonthlyReport">
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/Totalcardview"
+        android:layout_width="318dp"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="28dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/TotalView"
+            android:layout_width="146dp"
+            android:layout_height="44dp"
+            android:layout_gravity="end|center_horizontal"
+
+            android:text="Total"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/totalimage"
+            android:layout_width="146dp"
+            android:layout_height="72dp"
+
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/totalr" />
+
+        <TextView
+            android:id="@+id/TotalTextView"
+            android:layout_width="123dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="50dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="18dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/Misccardview"
+        android:layout_width="318dp"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="232dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/MiscView"
+            android:layout_width="146dp"
+            android:layout_height="44dp"
+            android:layout_gravity="end|center_horizontal"
+
+            android:text="Misc."
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/miscimage"
+            android:layout_width="146dp"
+            android:layout_height="72dp"
+
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/miscr" />
+
+        <TextView
+            android:id="@+id/MiscTextView"
+            android:layout_width="123dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="50dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="18dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/Foodcardview"
+        android:layout_width="318dp"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="336dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/FoodView"
+            android:layout_width="146dp"
+            android:layout_height="44dp"
+            android:layout_gravity="end|center_horizontal"
+
+            android:text="Food"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/Foodimage"
+            android:layout_width="146dp"
+            android:layout_height="72dp"
+
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/foodr" />
+
+        <TextView
+            android:id="@+id/FoodTextView"
+            android:layout_width="123dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="50dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="18dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/Utilitiescardview"
+        android:layout_width="318dp"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="436dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/UtilitiesView"
+            android:layout_width="146dp"
+            android:layout_height="44dp"
+            android:layout_gravity="end|center_horizontal"
+
+            android:text="Utilities"
+
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/utilitiesimage"
+            android:layout_width="146dp"
+            android:layout_height="72dp"
+
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/utilitiesr" />
+
+        <TextView
+            android:id="@+id/UtilitiesTextView"
+            android:layout_width="123dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="50dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="18dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/HousingCardview"
+        android:layout_width="318dp"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="536dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/HousingView"
+            android:layout_width="157dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_horizontal"
+
+            android:text="Housing"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/homeimage"
+            android:layout_width="146dp"
+            android:layout_height="72dp"
+
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/homer" />
+
+        <TextView
+            android:id="@+id/HousingTextView"
+            android:layout_width="123dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="50dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="18dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/Medicalview"
+        android:layout_width="318dp"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="128dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/medicalview"
+            android:layout_width="146dp"
+            android:layout_height="44dp"
+            android:layout_gravity="end|center_horizontal"
+
+            android:text="Medical"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/descriptionimage"
+            android:layout_width="146dp"
+            android:layout_height="72dp"
+
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/medicalr" />
+
+        <TextView
+            android:id="@+id/MedicalTextView"
+            android:layout_width="123dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="50dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="18dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

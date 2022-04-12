@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
             {
                 if (username.getText().toString().equals(_username) && (password.getText().toString().equals(_password)))
                 {
-
                     Toast.makeText(MainActivity.this, "Successful login", Toast.LENGTH_SHORT).show();
                     isValidLogin=true;
                     SaveUserName(username.getText().toString());

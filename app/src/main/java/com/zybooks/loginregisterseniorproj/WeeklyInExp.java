@@ -3,6 +3,7 @@ package com.zybooks.loginregisterseniorproj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -93,6 +94,86 @@ public class WeeklyInExp extends AppCompatActivity {
             n.putExtra("l", p11);
             n.putExtra("m", p12);
             n.putExtra("n", p13);
+
+
+            SQLTableManager thisTable = new SQLTableManager(this);
+
+            //retrieve data
+            SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+            String whatever = sharedPreferences.getString("text", "");
+            //insert data
+            boolean testMe =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p1, "10/2/2000");
+            boolean testMe2 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p2, "10/2/2000");
+            boolean testMe3 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p3, "10/2/2000");
+            boolean testMe4 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p4, "10/2/2000");
+            boolean testMe5 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p5, "10/2/2000");
+            boolean testMe6 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p6, "10/2/2000");
+            boolean testMe7 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p7, "10/2/2000");
+            boolean testMe8 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p8, "10/2/2000");
+            boolean testMe9 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p9, "10/2/2000");
+            boolean testMe10 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p10, "10/2/2000");
+            boolean testMe11 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p11, "10/2/2000");
+            boolean testMe12 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p12, "10/2/2000");
+            boolean testMe13 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p13, "10/2/2000");
+            //test Data
+            if(!testMe)
+            {
+                Toast.makeText(this,"error inserting data",Toast.LENGTH_LONG);
+            }
+
+            startActivity(n);
+        }
+    }
+
+    public void ComputeText(View view) {
+        if(
+                eva13.getText().toString().isEmpty() ||
+                        eva12.getText().toString().isEmpty() ||
+                        eva11.getText().toString().isEmpty() ||
+                        eva10.getText().toString().isEmpty() ||
+                        eva.getText().toString().isEmpty() ||//check if fields are empty then tells you to fill them in if they are
+                        eva1.getText().toString().isEmpty() ||
+                        eva2.getText().toString().isEmpty() ||
+                        eva3.getText().toString().isEmpty() ||
+                        eva4.getText().toString().isEmpty() ||
+                        eva5.getText().toString().isEmpty() ||
+                        eva6.getText().toString().isEmpty() ||
+                        eva7.getText().toString().isEmpty() ||
+                        eva8.getText().toString().isEmpty() ||
+                        eva9.getText().toString().isEmpty()) {
+            Toast.makeText(WeeklyInExp.this, "Fill in all fields",
+                    Toast.LENGTH_LONG).show();
+        }else {
+            float p1, p2, p3, p4, p5, p6, p7, p8, p9, p, p10, p11, p12, p13;
+            p = Float.parseFloat(eva.getText().toString());
+            p1 = Float.parseFloat(eva1.getText().toString());
+            p2 = Float.parseFloat(eva2.getText().toString());
+            p3 = Float.parseFloat(eva3.getText().toString());
+            p4 = Float.parseFloat(eva4.getText().toString());
+            p5 = Float.parseFloat(eva5.getText().toString());
+            p6 = Float.parseFloat(eva6.getText().toString());
+            p7 = Float.parseFloat(eva7.getText().toString());
+            p8 = Float.parseFloat(eva8.getText().toString());
+            p9 = Float.parseFloat(eva9.getText().toString());
+            p10 = Float.parseFloat(eva10.getText().toString());
+            p11 = Float.parseFloat(eva11.getText().toString());
+            p12 = Float.parseFloat(eva12.getText().toString());
+            p13 = Float.parseFloat(eva13.getText().toString());
+            Intent n = new Intent(this, TextReport.class);
+            n.putExtra("1", p1);
+            n.putExtra("2", p2);
+            n.putExtra("3", p3);
+            n.putExtra("4", p4);
+            n.putExtra("5", p5);
+            n.putExtra("6", p6);
+            n.putExtra("7", p7);
+            n.putExtra("8", p8);
+            n.putExtra("9", p9);
+            n.putExtra("0", p);
+            n.putExtra("10", p10);
+            n.putExtra("11", p11);
+            n.putExtra("12", p12);
+            n.putExtra("13", p13);
 
             startActivity(n);
         }
