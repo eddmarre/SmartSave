@@ -1,6 +1,7 @@
 package com.zybooks.loginregisterseniorproj;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 //Tino
 public class MonthlyPieCalc extends AppCompatActivity {
     EditText ev, ev1, ev2, ev3, ev4, ev5, ev6, ev7, ev8, ev9, ev10, ev11;
@@ -33,9 +35,9 @@ public class MonthlyPieCalc extends AppCompatActivity {
         ev10 = findViewById(R.id.ev10);
         ev11 = findViewById(R.id.ev11);
         sumOfU = findViewById(R.id.sumOfU);
-        sumOfF=findViewById(R.id.sumOfF);
-        sumOfM=findViewById(R.id.sumOfM);
-        sumOfMe=findViewById(R.id.sumOfMe);
+        sumOfF = findViewById(R.id.sumOfF);
+        sumOfM = findViewById(R.id.sumOfM);
+        sumOfMe = findViewById(R.id.sumOfMe);
 
     }
 
@@ -57,7 +59,7 @@ public class MonthlyPieCalc extends AppCompatActivity {
 
     public void FSum(View view) {
         if (ev5.getText().toString().isEmpty() ||
-                ev6.getText().toString().isEmpty()){
+                ev6.getText().toString().isEmpty()) {
 
             Toast.makeText(MonthlyPieCalc.this, "Fill in all fields",
                     Toast.LENGTH_LONG).show();
@@ -147,11 +149,11 @@ public class MonthlyPieCalc extends AppCompatActivity {
 
             float total = sum5;
             float SumA, SumB, SumC, SumD, SumE;
-            SumA = (g1 / total)*100;
-            SumB = (sum1 / total)*100;
-            SumC = (sum2 / total)*100;
-            SumD = (sum3 / total)*100;
-            SumE = (sum4 / total)*100;
+            SumA = (g1 / total) * 100;
+            SumB = (sum1 / total) * 100;
+            SumC = (sum2 / total) * 100;
+            SumD = (sum3 / total) * 100;
+            SumE = (sum4 / total) * 100;
 
 
             Intent n = new Intent(this, PieChartExpense.class);
@@ -161,6 +163,19 @@ public class MonthlyPieCalc extends AppCompatActivity {
             n.putExtra("4", SumD);
             n.putExtra("5", SumE);
 
+            //intialize
+//            SQLTableManager thisTable = new SQLTableManager(this);
+//
+//            //retrieve data
+//            SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+//            String whatever = sharedPreferences.getString("text", "");
+//            //insert data
+//            boolean testMe =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumA, "10/2/2000");
+//            //test Data
+//             if(!testMe)
+//           {
+//               Toast.makeText(this,"error inserting data",Toast.LENGTH_LONG);
+//           }
             startActivity(n);
         }
     }
@@ -171,7 +186,7 @@ public class MonthlyPieCalc extends AppCompatActivity {
             Toast.makeText(MonthlyPieCalc.this, "Fill in all fields",
                     Toast.LENGTH_LONG).show();
         } else {
-            float t1,t2,t3,t4,t5;
+            float t1, t2, t3, t4, t5;
             t1 = Float.parseFloat(ev1.getText().toString());
             t2 = Float.parseFloat(sumOfU.getText().toString());
             t3 = Float.parseFloat(sumOfM.getText().toString());

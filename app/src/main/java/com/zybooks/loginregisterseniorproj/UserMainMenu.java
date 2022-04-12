@@ -44,4 +44,9 @@ public class UserMainMenu extends AppCompatActivity {
         Intent n = new Intent(this,CryptoMarket.class);
         startActivity(n);
     }
+
+    public void Wallets(View view) {
+        Intent n = new Intent(this, Wallets.class);
+        startActivity(n);
+    }
 }

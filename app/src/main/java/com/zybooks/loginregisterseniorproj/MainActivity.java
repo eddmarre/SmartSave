@@ -139,8 +139,8 @@ public class MainActivity extends AppCompatActivity {
     {
         SQLTableManager SQLTableManager = new SQLTableManager(this);
 
-        boolean cryptoWalletSuccess=SQLTableManager.InsertCryptoWallet(GetCurrentUserName(),"AAA",1,100,"today","password");
-        boolean stockWalletSuccess=SQLTableManager.InsertStockWallet(GetCurrentUserName(),"BTC",1,100,"today","password");
+        boolean cryptoWalletSuccess=SQLTableManager.InsertCryptoWallet(GetCurrentUserName(),"AAA",1,100,"today");
+        boolean stockWalletSuccess=SQLTableManager.InsertStockWallet(GetCurrentUserName(),"BTC",1,100,"today");
 
         boolean userIncomeSuccess=SQLTableManager.InsertUserIncome(GetCurrentUserName(),"nothing yet",500,"today");
         boolean userExpenseSuccess =SQLTableManager.InsertUserExpense(GetCurrentUserName(),"nothing yet",500,"today");
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    private String GetCurrentUserName()
+     public String GetCurrentUserName()
     {
         SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         String currentUserName=sharedPreferences.getString(TEXT,"");

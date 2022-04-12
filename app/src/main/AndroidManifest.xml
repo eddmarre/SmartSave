@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegisterSeniorProj">
         <activity
+            android:name=".UserStockWallet"
+            android:exported="false" />
+        <activity
+            android:name=".UserCryptoWallet"
+            android:exported="false" />
+        <activity
+            android:name=".Wallets"
+            android:exported="false" />
+        <activity
             android:name=".ShowCryptoCurrencies"
             android:exported="false" />
         <activity

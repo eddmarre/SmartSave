@@ -19,4 +19,9 @@ public class Company {
     {
         return companyStockPrices;
     }
+    public float getLastStockPrice()
+    {
+
+        return companyStockPrices.get(companyStockPrices.size()-1).getOpen();
+    }
 }
