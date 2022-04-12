@@ -49,4 +49,8 @@ public class UserMainMenu extends AppCompatActivity {
         Intent n = new Intent(this, Wallets.class);
         startActivity(n);
     }
+
+    public void Calender(View view) {
+
+    }
 }
