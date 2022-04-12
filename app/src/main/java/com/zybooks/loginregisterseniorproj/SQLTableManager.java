@@ -99,7 +99,7 @@ public class SQLTableManager extends SQLiteOpenHelper {
     private void StockWallet(SQLiteDatabase db)
     {
         db.execSQL("create table "+ Stock_Wallet_TABLE_NAME +" ("+ Stock_Wallet_Col_1 +" text, "
-                + Stock_Wallet_Col_2 +" text unique, "
+                + Stock_Wallet_Col_2 +" text, "
                 + Stock_Wallet_Col_3 +" real, "
                 + Stock_Wallet_Col_4 +" real, "
                 + Stock_Wallet_Col_5 +" text, "
@@ -109,7 +109,7 @@ public class SQLTableManager extends SQLiteOpenHelper {
     private void CryptoWallet(SQLiteDatabase db)
     {
         db.execSQL("create table "+ Crypto_Wallet_TABLE_NAME +" ("+ Crypto_Wallet_Col_1 +" text, "
-                + Crypto_Wallet_Col_2 +" text unique, "
+                + Crypto_Wallet_Col_2 +" text, "
                 + Crypto_Wallet_Col_3 +" real, "
                 + Crypto_Wallet_Col_4 +" real, "
                 + Crypto_Wallet_Col_5 +" text, "
@@ -191,7 +191,7 @@ public class SQLTableManager extends SQLiteOpenHelper {
             return true;
         }
     }
-    public boolean InsertStockWallet(String userName,String companySymbol, float amountOwned, float currentPrice,String purchaseDate,String password)
+    public boolean InsertStockWallet(String userName,String companySymbol, float amountOwned, float currentPrice,String purchaseDate)
     {
 
         SQLiteDatabase db =this.getWritableDatabase();
@@ -212,7 +212,7 @@ public class SQLTableManager extends SQLiteOpenHelper {
             return true;
         }
     }
-    public boolean InsertCryptoWallet(String userName,String cryptoSymbol, float amountOwned, float currentPrice,String purchaseDate,String password)
+    public boolean InsertCryptoWallet(String userName,String cryptoSymbol, float amountOwned, float currentPrice,String purchaseDate)
     {
 
         SQLiteDatabase db =this.getWritableDatabase();
@@ -373,7 +373,7 @@ public class SQLTableManager extends SQLiteOpenHelper {
     public Cursor GetTableData(String tableName)
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM "+ tableName,null);
+        Cursor res = db.rawQuery("Select * from "+ tableName,null);
         return res;
     }
 }
