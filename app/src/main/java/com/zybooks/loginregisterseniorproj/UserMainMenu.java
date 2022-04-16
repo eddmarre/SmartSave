@@ -51,6 +51,7 @@ public class UserMainMenu extends AppCompatActivity {
     }
 
     public void Calender(View view) {
-
+    Intent n = new Intent(this, Calender.class);
+    startActivity(n);
     }
 }

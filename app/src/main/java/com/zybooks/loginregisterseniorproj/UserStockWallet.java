@@ -139,9 +139,6 @@ public class UserStockWallet extends AppCompatActivity {
                 //create company's information from data obtained
                 Company currentCompany = new Company(SYMBOL, dailyStock);
                 Float latestPrice = currentCompany.getLastStockPrice();
-                //String sLatesPrice = latestPrice.toString();
-                //output.setText(SYMBOL + " " + sLatesPrice);
-
                 Float actualAmountOwned = Float.parseFloat(amountOwned.getText().toString());
                 InsertIntoStockWallet(SYMBOL, actualAmountOwned, latestPrice);
 
@@ -157,6 +154,7 @@ public class UserStockWallet extends AppCompatActivity {
         Date currentTime = Calendar.getInstance().getTime();
 
         SQLTableManager tableManager = new SQLTableManager(this);
+
         tableManager.InsertStockWallet(getUserName(), Symbol, amountOwned, LatestPrice, currentTime.toString());
 
         GetUserStockWallet();

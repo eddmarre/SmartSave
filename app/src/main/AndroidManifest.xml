@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegisterSeniorProj">
         <activity
+            android:name=".DailyCalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WeekViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EventEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Calender"
+            android:exported="false" />
+        <activity
             android:name=".TextReport"
             android:exported="false" />
         <activity

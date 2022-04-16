@@ -16,4 +16,7 @@
     <color name="black_shade_3">#22252D</color>
     <color name="dark_blue_shade">#021853</color>
     <color name="yellow">#ffa500</color>
+    //calender colors
+    <color name="lightGray">#EEE</color>
+    <color name="blue">#ADD8E6</color>
 </resources>

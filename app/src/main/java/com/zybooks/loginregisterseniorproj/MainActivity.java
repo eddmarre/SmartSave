@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //Eddie
     private void ChangeActivityAfterLogin(String userName) {
-        //InsertAllTablesGarbageValues();
+       // InsertAllTablesGarbageValues();
         loginSuccessIntent= new Intent(this, UserMainMenu.class);
         startActivity(loginSuccessIntent);
         finish();
@@ -137,14 +137,15 @@ public class MainActivity extends AppCompatActivity {
     private void InsertAllTablesGarbageValues()
     {
         SQLTableManager SQLTableManager = new SQLTableManager(this);
+        boolean accountUserSuccess=SQLTableManager.InsertAccountUser("Admin","User","xx/xx/xxxx","admin@savesmart.com",1234567890,"adminPassword");
 
-        boolean cryptoWalletSuccess=SQLTableManager.InsertCryptoWallet(GetCurrentUserName(),"AAA",1,100,"today");
-        boolean stockWalletSuccess=SQLTableManager.InsertStockWallet(GetCurrentUserName(),"BTC",1,100,"today");
+        boolean cryptoWalletSuccess=SQLTableManager.InsertCryptoWallet("Admin","AAA",1,100,"today");
+        boolean stockWalletSuccess=SQLTableManager.InsertStockWallet("Admin","BTC",1,100,"today");
 
-        boolean userIncomeSuccess=SQLTableManager.InsertUserIncome(GetCurrentUserName(),"nothing yet",500,"today");
-        boolean userExpenseSuccess =SQLTableManager.InsertUserExpense(GetCurrentUserName(),"nothing yet",500,"today");
+        boolean userIncomeSuccess=SQLTableManager.InsertUserIncome("Admin","nothing yet",500,"today");
+        boolean userExpenseSuccess =SQLTableManager.InsertUserExpense("Admin","nothing yet",500,"today");
 
-        boolean familyUserSuccess=SQLTableManager.InsertFamilyUser(GetCurrentUserName(),"COOLGUY","John","Doe","today","Son");
+        boolean familyUserSuccess=SQLTableManager.InsertFamilyUser("Admin","COOLGUY","John","Doe","today","Son");
 
         boolean familyUserIncomeSuccess=SQLTableManager.InsertFamilyUserIncome("COOLGUY","nothing yet",500,"today");
         boolean familyUserExpenseSuccess=SQLTableManager.InsertFamilyUserExpense("COOLGUY","nothing yet",500,"today");
