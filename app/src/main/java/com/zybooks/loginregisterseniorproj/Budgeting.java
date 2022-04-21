@@ -1,35 +1,42 @@
 package com.zybooks.loginregisterseniorproj;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
 public class Budgeting extends AppCompatActivity {
     float budget = 100;
-    float budgetNoti; // Number that will notify user that they have surpassed a percentage of their budget
+    float amtLeft = 100;
+    float usedAmt = 100;
+    float budgetNoti1, budgetNoti2, budgetNoti3; // Number that will notify user that they have surpassed a percentage of their budget
     TextView budgetAmount;
+    TextView usedAmount;
+    TextView amountLeft;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budgeting);
         budgetAmount = findViewById(R.id.budgetamt);
-        GrabTableData();
-
+        usedAmount = findViewById(R.id.usedamt);
+        amountLeft = findViewById(R.id.amountleftamt);
+        budgetAmount.setText("500");
+        usedAmount.setText("600");
+        amountLeft.setText("700");
     }
 
 
     private void GrabTableData() {
         // 1) Save Data
-        SaveData(budget);
+        SaveData(0);
         // 2) Grab Saved Data
         SQLTableManager anotherTable = new SQLTableManager(this);
         //create temp data holder
@@ -46,9 +53,13 @@ public class Budgeting extends AppCompatActivity {
                 while (someOtherTable.moveToNext()) {
                     //constant integer for column number
                     //starts from 0
-                    final int lostRevenueColumnNumber = 2;
-                    //add data to our list
-                    allLostRevenues.add(someOtherTable.getFloat(lostRevenueColumnNumber));
+                    if(someOtherTable.getString(0).equals(GetCurrentUserName()))
+                    {
+                        final int lostRevenueColumnNumber = 2;
+                        //add data to our list
+                        allLostRevenues.add(someOtherTable.getFloat(lostRevenueColumnNumber));
+                    }
+
                 }
                 //toss error if nothing was found in the data search
             } catch (Exception e) {
@@ -58,34 +69,72 @@ public class Budgeting extends AppCompatActivity {
         //for each float in the all lost revenue table
         for (Float currentFloat :
                 allLostRevenues) {
-            budget -= currentFloat;
+            //budget -= currentFloat;
+            amtLeft += currentFloat;
         }
-
+        budget -= amtLeft;
         // 3) Save the data again
 
         SaveData(budget);
-        budgetNoti = budget/(2f); // %50 of budget
-        budgetNoti = budget/(4f/3f); // 75% of budget
-        budgetNoti = budget; // %100 of budget used
+        budgetNoti1 = budget/(2f); // %50 of budget
+        budgetNoti2 = budget/(4f/3f); // 75% of budget
+        budgetNoti3 = budget; // %100 of budget used
+
         float budgetAmountString = getSavedData();
-        String budgetString = String.valueOf(budgetAmountString);
-        budgetAmount.setText(budgetString);
+        String budgetStringFloat = String.format("%.02f",budgetAmountString);
+        budgetAmount.setText(budgetStringFloat);
+
+        float usedAmountString = getSavedData();
+        String usedAmountStringFloat = String.format("%.02f",usedAmountString);
+        usedAmount.setText(usedAmountStringFloat);
+
+        float amountLeftString = getSavedData();
+        String amountLeftStringFloat = String.format("%.02f", amountLeftString);
+        amountLeft.setText(amountLeftStringFloat);
+
+        // Put notification/toast code here
+
+        if (budget < budgetNoti1) // 50%
+        {
+
+        }
+        else if (budget < budgetNoti2) // 75%
+        {
+
+        }
+        else if (budget < budgetNoti3) // 100%
+        {
+
+        }
 
     }
         // 4) Grab saved data again
         private float getSavedData ()
         {
             SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            float variableName = sharedPreferences.getFloat("budgetKeyName", 0);
+            float variableName = sharedPreferences.getFloat("keyNm", 0);
             return variableName;
         }
+    public String GetCurrentUserName()
+    {
+        SharedPreferences sharedPreferences=getSharedPreferences("sharedPrefs",MODE_PRIVATE);
+        String currentUserName=sharedPreferences.getString("text","");
+        return currentUserName;
+    }
+
     private void SaveData(float data)
     {
-        getSharedPreferences("sharedPreferences", MODE_PRIVATE);
+        getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putFloat("budgetKeyName", data);
+        editor.putFloat("keyNm", data);
         editor.apply();
+
     }
+
+    public void check(View view)
+    {
+        GrabTableData();
     }
+}
 
