@@ -21,4 +21,8 @@
     //calener names
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
+    <string name="budgeted">Budgeted</string>
+    <string name="used">Used</string>
+    <string name="amount_left">Amount Left</string>
+    <string name="budgeting">Budgeting</string>
 </resources>

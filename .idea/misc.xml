@@ -34,37 +34,29 @@
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_user_main_menu.xml" value="0.264" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/splash_screen.xml" value="0.2375" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_calender.xml" value="0.1" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_company_stock_information.xml" value="0.2246376811594203" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_crypto_currency_information.xml" value="0.264" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_crypto_market.xml" value="0.2246376811594203" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_daily_calendar.xml" value="0.253125" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_daily_calender.xml" value="0.253125" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_event_edit.xml" value="0.253125" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_monthly_pie_calc.xml" value="0.264" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_reporting_main.xml" value="0.264" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_show_companies.xml" value="0.1" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_show_crypto_currencies.xml" value="0.22735507246376813" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_show_currency_informations.xml" value="0.2246376811594203" />
         <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_stock_market.xml" value="0.2246376811594203" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_user_main_menu.xml" value="0.4" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_week_view.xml" value="0.253125" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/calender_cell.xml" value="0.253125" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/calender_cells.xml" value="0.2390625" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/event_cell.xml" value="0.253125" />
-        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/hour_cell.xml" value="0.2390625" />
+        <entry key="..\:/Users/Jrem0/AndroidStudioProjects/SmartSave/app/src/main/res/layout/activity_user_main_menu.xml" value="0.1838768115942029" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/LoginRegisterSeniorProj/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/SmartSave413/app/src/main/res/layout/activity_monthly_pie_calc.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/SmartSave413/app/src/main/res/layout/activity_monthly_report.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/SmartSave413/app/src/main/res/layout/activity_text_report.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/SmartSave413/app/src/main/res/layout/activity_weekly_in_exp.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_budgeting.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_company_stock_information.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_crypto.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_crypto_currency_rv_adapter.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_crypto_transactions.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_crypto_transactions_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_crypto_transactions_list.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_crypto_wallet.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_monthly_pie_calc.xml" value="0.3098958333333333" />
@@ -75,6 +67,7 @@
         <entry key="app/src/main/res/layout/activity_show_currency_informations.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_stock_market.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_user_main_menu.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_wallets.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_weekly_bar_chart.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_weekly_in_exp.xml" value="0.5" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/btcimage.xml" value="0.1725" />

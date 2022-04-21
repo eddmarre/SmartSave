@@ -54,4 +54,11 @@ public class UserMainMenu extends AppCompatActivity {
     Intent n = new Intent(this, Calender.class);
     startActivity(n);
     }
+
+    public void Budgeting(View view) {
+        Intent n = new Intent(this, Budgeting.class);
+        startActivity(n);
+    }
+
+
 }

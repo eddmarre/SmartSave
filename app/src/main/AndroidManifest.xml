@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegisterSeniorProj">
         <activity
+            android:name=".Budgeting"
+            android:exported="false" />
+        <activity
             android:name=".DailyCalendarActivity"
             android:exported="false" />
         <activity
