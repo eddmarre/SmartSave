@@ -39,12 +39,7 @@ public void openCryptoTransactions() {
         alert.setMessage("Your Bitcoin address is a unique address that allows " +
                 "users to securely send and receive Bitcoin. " +
                 "By scanning the QR code above you can view your address and get to earning some Bitcoin! ");
-        alert.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(CryptoWallet.this, "Don't forget to SaveSmart!",Toast.LENGTH_SHORT).show();
-            }
-        });
+        alert.setNeutralButton("OK", (dialogInterface, i) -> Toast.makeText(CryptoWallet.this, "Don't forget to SaveSmart!",Toast.LENGTH_SHORT).show());
         alert.create().show();
     }
 }
