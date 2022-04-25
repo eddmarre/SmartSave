@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import java.util.Set;
+
 //Burhan
 public class UserMainMenu extends AppCompatActivity {
 
@@ -61,4 +64,8 @@ public class UserMainMenu extends AppCompatActivity {
     }
 
 
+    public void SetBudget(View view) {
+        Intent n = new Intent(this, SetBudgetActivity.class);
+        startActivity(n);
+    }
 }

@@ -17,20 +17,17 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class Budgeting extends AppCompatActivity {
-    float budget = 100;
+    float budget;
     float amtLeft;
     float usedAmt;
-    //usedAmt = budget - amtLeft;
     float budgetNoti1, budgetNoti2, budgetNoti3; // Number that will notify user that they have surpassed a percentage of their budget
     TextView budgetAmount;
     TextView usedAmount;
     TextView amountLeft;
-
+    TextView debugText;
     private ProgressBar budgetBar;
-    private TextView budgetBarText;
     private int budgetBarStatus = 0;
     private Handler nHandler = new Handler();
-
 
 
     @Override
@@ -43,38 +40,14 @@ public class Budgeting extends AppCompatActivity {
         budgetAmount.setText("0");
         usedAmount.setText("0");
         amountLeft.setText("0");
-
         budgetBar = (ProgressBar) findViewById(R.id.budgetbar);
-        budgetBarText = (TextView) findViewById(R.id.budgetBarTextView);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(budgetBarStatus<100){
-                    budgetBarStatus++;
-                    android.os.SystemClock.sleep(50);
-                    nHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            budgetBar.setProgress(budgetBarStatus);
-                        }
-                    });
-                }
-                nHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        budgetBarText.setVisibility(View.VISIBLE);
-                    }
-                });
-            }
-        }).start();
     }
 
 
     private void GrabTableData() {
-        // 1) Save Data
-        SaveData(0);
-        // 2) Grab Saved Data
+
+        // 1) Grab Saved Data
         SQLTableManager anotherTable = new SQLTableManager(this);
         //create temp data holder
         Cursor someOtherTable = anotherTable.GetTableData("Account_User_Expense");
@@ -90,7 +63,9 @@ public class Budgeting extends AppCompatActivity {
                 while (someOtherTable.moveToNext()) {
                     //constant integer for column number
                     //starts from 0
-                    if(someOtherTable.getString(0).equals(GetCurrentUserName()))
+                    String userName = (someOtherTable.getString(0));
+
+                    if(userName.equals(GetCurrentUserName()))
                     {
                         final int lostRevenueColumnNumber = 2;
                         //add data to our list
@@ -106,19 +81,22 @@ public class Budgeting extends AppCompatActivity {
         //for each float in the all lost revenue table
         for (Float currentFloat :
                 allLostRevenues) {
-            budget -= currentFloat;
-            amtLeft += currentFloat;
+            usedAmt += currentFloat;
         }
-        //budget -= amtLeft;
+
         // 3) Save the data again
 
-        SaveData(budget);
-
+        SaveData(usedAmt);
+        StringBuilder NotifcationDebug = new StringBuilder();
         budgetNoti1 = (budget/(2f)); // %50 of budget
         budgetNoti2 = (budget/(4f/3f)); // 75% of budget
         budgetNoti3 = budget; // %100 of budget used
+        NotifcationDebug.append(budgetNoti1+"\n");
+        NotifcationDebug.append(budgetNoti2+"\n");
+        NotifcationDebug.append(budgetNoti3+"\n");
 
-        float budgetAmountString = getSavedData();
+
+        float budgetAmountString = GetBudget();
         String budgetStringFloat = String.format("%.02f",budgetAmountString);
         budgetAmount.setText(budgetStringFloat);
 
@@ -126,37 +104,45 @@ public class Budgeting extends AppCompatActivity {
         String usedAmountStringFloat = String.format("%.02f",usedAmountString);
         usedAmount.setText(usedAmountStringFloat);
 
-        float amountLeftString = getSavedData();
+        float amountLeftString = budgetAmountString - usedAmountString;
         String amountLeftStringFloat = String.format("%.02f", amountLeftString);
         amountLeft.setText(amountLeftStringFloat);
 
         // Put notification/toast code here
 
-        if (budget > budgetNoti1) // More than half of budget is available
+        Float progressPercent;
+        progressPercent = (amtLeft/budget) * 100;
+        int progressPercentInt = (int)Math.round(progressPercent);
+
+        budgetBar.setProgress(progressPercentInt); // Sets progress bar
+        if (progressPercent < 0)
         {
-            Toast.makeText(getApplicationContext(),"You have more than half of your budget remaining!",Toast.LENGTH_LONG)
+            amtLeft = 0;
+            Toast.makeText(this,"Beyond Limit",Toast.LENGTH_LONG)
                     .show();
         }
-        else if (budget >= budgetNoti1) // 50%
+        else if (progressPercent == budgetNoti3) // 100%
         {
-            Toast.makeText(getApplicationContext(),"You have passed the 50% mark of your budget.",Toast.LENGTH_LONG)
+            Toast.makeText(this,"You reached your budget",Toast.LENGTH_LONG)
                     .show();
         }
-        else if (budget >= budgetNoti2) // 75%
+        else if (progressPercent < budgetNoti1 && progressPercent >= 0) // 0-49
         {
-            Toast.makeText(getApplicationContext(),"You have passed the 75% mark of your budget.",Toast.LENGTH_LONG)
+            Toast.makeText(this,"You have not passed the 50% mark of your budget",Toast.LENGTH_LONG)
                     .show();
         }
-        else if (budget == budgetNoti3) // 100%
+        else if (progressPercent <= budgetNoti2 && progressPercent > budgetNoti1) // 50-75
         {
-            Toast.makeText(getApplicationContext(),"You have reached your budget!",Toast.LENGTH_LONG)
+            Toast.makeText(this,"You have passed the 50% mark of your budget.",Toast.LENGTH_LONG)
                     .show();
         }
-        else
+        else if (progressPercent > budgetNoti2 && progressPercent <budgetNoti3) // 76-99
         {
-            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_LONG)
+            Toast.makeText(this,"You have passed the 75% mark of your budget.",Toast.LENGTH_LONG)
                     .show();
         }
+
+
 
     }
         // 4) Grab saved data again
@@ -169,7 +155,7 @@ public class Budgeting extends AppCompatActivity {
     public String GetCurrentUserName()
     {
         SharedPreferences sharedPreferences=getSharedPreferences("sharedPrefs",MODE_PRIVATE);
-        String currentUserName=sharedPreferences.getString("KeyNm","");
+        String currentUserName=sharedPreferences.getString("text","");
         return currentUserName;
     }
 
@@ -179,6 +165,23 @@ public class Budgeting extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putFloat("keyNm", data);
+        editor.apply();
+
+    }
+
+    public Float GetBudget()
+    {
+        SharedPreferences sharedPreferences=getSharedPreferences("sharedPrefs2",MODE_PRIVATE);
+        Float currentUserName=sharedPreferences.getFloat("getBudgetKeyName",0);
+        return currentUserName;
+    }
+
+    public void SaveBudget(float data)
+    {
+        getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs2", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putFloat("getBudgetKeyName", data);
         editor.apply();
 
     }

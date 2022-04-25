@@ -160,11 +160,17 @@ MonthlyPieCalc extends AppCompatActivity {
 
 
             Intent n = new Intent(this, PieChartExpense.class);
-            n.putExtra("1", SumA);
-            n.putExtra("2", SumB);
-            n.putExtra("3", SumC);
-            n.putExtra("4", SumD);
-            n.putExtra("5", SumE);
+            n.putExtra("1", sum1);
+            n.putExtra("2", sum2);
+            n.putExtra("3", sum3);
+            n.putExtra("4", sum4);
+            n.putExtra("5", sum5);
+
+            n.putExtra("6", SumA);
+            n.putExtra("7", SumB);
+            n.putExtra("8", SumC);
+            n.putExtra("9", SumD);
+            n.putExtra("10", SumE);
 
             //intialize
             SQLTableManager thisTable = new SQLTableManager(this);
@@ -173,11 +179,11 @@ MonthlyPieCalc extends AppCompatActivity {
            SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             String whatever = sharedPreferences.getString("text", "");
             //insert data
-            boolean testMe =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumA, "10/2/2000");
-            boolean testMe2 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumB, "10/2/2000");
-            boolean testMe3 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumC, "10/2/2000");
-            boolean testMe4 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumD, "10/2/2000");
-            boolean testMe5 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", SumE, "10/2/2000");
+            boolean testMe =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum1, "10/2/2000");
+            boolean testMe2 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum2, "10/2/2000");
+            boolean testMe3 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum3, "10/2/2000");
+            boolean testMe4 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum4, "10/2/2000");
+            //boolean testMe5 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum5, "10/2/2000");
             //test Data
              if(!testMe)
            {

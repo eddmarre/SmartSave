@@ -127,14 +127,14 @@ public class PieChartExpense extends AppCompatActivity {
             }
         }
 
-        for (Float currentFloat5 :
-                allLostRevenues) {
-            //if the data in the database matches the current revenue
-            if (currentFloat5 == recInt.getFloatExtra("5", SumE)) {
-                //store the current float to display later
-                finalPrintedFloat5 = currentFloat5;
-            }
-        }
+//        for (Float currentFloat5 :
+//                allLostRevenues) {
+//            //if the data in the database matches the current revenue
+//            if (currentFloat5 == recInt.getFloatExtra("5", SumE)) {
+//                //store the current float to display later
+//                finalPrintedFloat5 = currentFloat5;
+//            }
+//        }
 
         ArrayList<PieEntry> entries = new ArrayList<>();
         //insert into chart
@@ -142,7 +142,7 @@ public class PieChartExpense extends AppCompatActivity {
         entries.add(new PieEntry(finalPrintedFloat2, "Medical"));
         entries.add(new PieEntry(finalPrintedFloat3, "Entertainment"));
         entries.add(new PieEntry(finalPrintedFloat4, "Electricity/Gas"));
-        entries.add(new PieEntry(finalPrintedFloat5, "Housing"));
+       // entries.add(new PieEntry(finalPrintedFloat5, "Housing"));
 
 
 
