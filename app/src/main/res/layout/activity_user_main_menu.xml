@@ -92,7 +92,7 @@
         android:id="@+id/button4"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:onClick="Budgeting"
+        android:onClick="differentBudgetName"
         android:text="@string/budgeting"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -158,5 +158,36 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/walletButton" />
+
+    <Button
+        android:id="@+id/LogOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:onClick="LogOutOnClick"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/CreateFamilyUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:text="Add Family"
+        android:onClick="AddFamilyMemberButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SetBudgetingBtn" />
+
+    <Button
+        android:id="@+id/showFamilyUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="ShowFamilyUserButton"
+        android:text="Show Family"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CreateFamilyUserButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

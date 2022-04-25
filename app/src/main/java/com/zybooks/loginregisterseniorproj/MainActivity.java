@@ -53,8 +53,19 @@ public class MainActivity extends AppCompatActivity {
         
         isValidLogin=false;
 
+        CheckIfLoggedIn();
+
         CreateOrAddUserTable();
     }
+    //Eddie
+    private void CheckIfLoggedIn() {
+        if(!GetCurrentUserName().equals(""))
+        {
+            Intent n = new Intent(this,UserMainMenu.class);
+            startActivity(n);
+        }
+    }
+
     //Eddie
     private void CreateOrAddUserTable() {
         _SQLTableManager =new SQLTableManager(this);
@@ -167,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString(TEXT,userName);
         editor.apply();
     }
-
+    
      public String GetCurrentUserName()
     {
         SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);

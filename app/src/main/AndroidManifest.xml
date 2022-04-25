@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegisterSeniorProj">
         <activity
+            android:name=".FamilyUserExpense"
+            android:exported="false" />
+        <activity
+            android:name=".FamilyUserIncome"
+            android:exported="false" />
+        <activity
+            android:name=".FamilyMemberMainMenu"
+            android:exported="false" />
+        <activity
+            android:name=".ViewCurrentFamilyMembers"
+            android:exported="false" />
+        <activity
+            android:name=".AddFamilyMember"
+            android:exported="false" />
+        <activity
             android:name=".SetBudgetActivity"
             android:exported="false" />
         <activity

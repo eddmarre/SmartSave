@@ -145,13 +145,13 @@ public class Budgeting extends AppCompatActivity {
 
 
     }
-        // 4) Grab saved data again
-        private float getSavedData ()
-        {
-            SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            float variableName = sharedPreferences.getFloat("keyNm", 0);
-            return variableName;
-        }
+    // 4) Grab saved data again
+    private float getSavedData ()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        float variableName = sharedPreferences.getFloat("keyNm", 0);
+        return variableName;
+    }
     public String GetCurrentUserName()
     {
         SharedPreferences sharedPreferences=getSharedPreferences("sharedPrefs",MODE_PRIVATE);
@@ -195,5 +195,3 @@ public class Budgeting extends AppCompatActivity {
 
 
 }
-
-
