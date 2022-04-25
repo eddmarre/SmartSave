@@ -17,7 +17,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class Budgeting extends AppCompatActivity {
-    float budget;
+    float budget = 100;
     float amtLeft;
     float usedAmt;
     //usedAmt = budget - amtLeft;
@@ -117,9 +117,6 @@ public class Budgeting extends AppCompatActivity {
         budgetNoti1 = (budget/(2f)); // %50 of budget
         budgetNoti2 = (budget/(4f/3f)); // 75% of budget
         budgetNoti3 = budget; // %100 of budget used
-
-
-
 
         float budgetAmountString = getSavedData();
         String budgetStringFloat = String.format("%.02f",budgetAmountString);
