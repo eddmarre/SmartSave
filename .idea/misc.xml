@@ -19,9 +19,10 @@
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto_transactions_list.xml" value="0.13196555217831812" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_crypto_wallet.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_daily_calendar.xml" value="0.11195542046605876" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_event_edit.xml" value="0.17831813576494426" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_family_member_main_menu.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_family_user_expense.xml" value="0.36666666666666664" />
-        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_family_user_income.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_family_user_income.xml" value="0.3192090395480226" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_get_expense_data.xml" value="0.17831813576494426" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_monthly_pie_calc.xml" value="0.34692028985507245" />
@@ -29,10 +30,13 @@
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_pie_chart_expense.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_register.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_reporting_main.xml" value="0.34692028985507245" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_set_budget.xml" value="0.17831813576494426" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_show_companies.xml" value="0.17395833333333333" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_show_currency_informations.xml" value="0.13196555217831812" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_stock_market.xml" value="0.18802083333333333" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_user_crypto_wallet.xml" value="0.15833333333333333" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_user_main_menu.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_user_stock_wallet.xml" value="0.15833333333333333" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_view_current_family_members.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_wallets.xml" value="0.11195542046605876" />
         <entry key="..\:/AndroidProjects/SaveSmart/app/src/main/res/layout/activity_weekly_bar_chart.xml" value="0.34692028985507245" />
