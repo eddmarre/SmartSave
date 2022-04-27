@@ -386,28 +386,12 @@
                     android:id="@+id/stocksButton2"
                     android:layout_width="80dp"
                     android:layout_height="35dp"
-                    android:layout_marginHorizontal="230dp"
+                    android:layout_marginHorizontal="180dp"
                     android:layout_marginTop="60dp"
                     android:background="#4CAF50"
                     android:gravity="center"
                     android:onClick="differentBudgetName"
                     android:text="Budget Progress"
-                    android:textAlignment="center"
-                    android:textColor="@color/black_shade_1"
-                    android:textColorHighlight="@color/purple_200"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/SetBudgetingBtn"
-                    android:layout_width="80dp"
-                    android:layout_height="35dp"
-                    android:layout_marginHorizontal="135dp"
-                    android:layout_marginTop="60dp"
-                    android:background="#4CAF50"
-                    android:gravity="center"
-                    android:onClick="SetBudget"
-                    android:text="Set Budget"
                     android:textAlignment="center"
                     android:textColor="@color/black_shade_1"
                     android:textColorHighlight="@color/purple_200"
@@ -430,6 +414,52 @@
                     android:layout_height="127dp"
                     android:onClick="Calender"
                     app:srcCompat="@drawable/budgetingim" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+
+                android:id="@+id/cv"
+                android:layout_width="349dp"
+                android:layout_height="149dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#0C445E"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/SetBudgetingBtn"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="180dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="SetBudget"
+                    android:text="Set Budget"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/profilecardtext"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="165dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Profile"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:id="@+id/profileimage"
+                    android:layout_width="153dp"
+                    android:layout_height="127dp"
+                    android:onClick="Calender"
+                    app:srcCompat="@drawable/profileimg" />
 
             </androidx.cardview.widget.CardView>
 
