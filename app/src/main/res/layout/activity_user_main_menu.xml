@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Burhan-->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,186 +8,471 @@
     android:background="@drawable/gradient"
     tools:context=".UserMainMenu">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="133dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="132dp"
-        android:text="SmartSave"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="126dp"
-        android:layout_height="91dp"
-        android:layout_marginStart="143dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="142dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/banklogo" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="140dp"
-        android:onClick="crypto"
-        android:text="Search Crypto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/cryptoMarket"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="140dp"
-        android:onClick="CryptoMarket"
-        android:text="Crypto Market"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="120dp"
+                android:text="SmartSave"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="140dp"
-        android:onClick="CryptoWallet"
-        android:text="View My Crypto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cryptoMarket" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="91dp"
+                android:layout_marginStart="143dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="142dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/banklogo" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="143dp"
-        android:layout_marginBottom="9dp"
-        android:onClick="Finances"
-        android:text="Stock Market"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="349dp"
+                android:layout_height="149dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#0C445E"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:onClick="differentBudgetName"
-        android:text="@string/budgeting"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.975"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
+                <TextView
+                    android:id="@+id/familyaccounttext"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="165dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="Family Account"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray" />
 
-    <Button
-        android:id="@+id/SetBudgetingBtn"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:onClick="SetBudget"
-        android:text="Profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.975"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325" />
+                <ImageView
+                    android:id="@+id/familyaccoiuntimage"
+                    android:layout_width="125dp"
+                    android:layout_height="118dp"
 
-    <Button
-        android:id="@+id/currencyExchangeButton"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="CurrencyExchange"
-        android:text="Currency Exchange"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+                    app:srcCompat="@drawable/familyim" />
 
-    <Button
-        android:id="@+id/reportIncomeExpenseButton"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="ReportIncomeExpense"
-        android:text="My Reports"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currencyExchangeButton" />
+                <TextView
+                    android:id="@+id/CreateFamilyUserButton"
+                    android:layout_width="73dp"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="135dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="AddFamilyMemberButton"
+                    android:text="Add Family"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />/>
 
-    <Button
-        android:id="@+id/walletButton"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="Wallets"
-        android:text="My Wallets"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reportIncomeExpenseButton" />
+                <TextView
+                    android:id="@+id/showFamilyUserButton"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="230dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="ShowFamilyUserButton"
+                    android:text="Show Family"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/calender"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="Calender"
-        android:text="Calender"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/walletButton" />
+            <androidx.cardview.widget.CardView
 
-    <Button
-        android:id="@+id/LogOutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log Out"
-        android:onClick="LogOutOnClick"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                android:id="@+id/reportIncomeExpenseButton"
+                android:layout_width="349dp"
+                android:layout_height="149dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#0C445E"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true">
 
-    <Button
-        android:id="@+id/CreateFamilyUserButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
-        android:text="Add Family"
-        android:onClick="AddFamilyMemberButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SetBudgetingBtn" />
+                <TextView
+                    android:id="@+id/mexpense"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="230dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="mexpense"
+                    android:text="Monthly Breakdown"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/showFamilyUserButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:onClick="ShowFamilyUserButton"
-        android:text="Show Family"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CreateFamilyUserButton" />
+                <TextView
+                    android:id="@+id/wInExp"
+                    android:layout_width="73dp"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="135dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="wInExp"
+                    android:text="Weekly Breakdown"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/reportstext"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="165dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="Reports"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="152dp"
+                    android:layout_height="114dp"
+                    app:srcCompat="@drawable/reportim" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="349dp"
+                android:layout_height="149dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#0C445E"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/button14"
+                    android:layout_width="55dp"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="255dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="crypto"
+                    android:text="Search Crypto"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+                />
+
+                <TextView
+                    android:id="@+id/cryptotext"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="165dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Crypto Market"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:id="@+id/cryptoimg"
+                    android:layout_width="116dp"
+                    android:layout_height="107dp"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/bitcoinim" />
+
+                <TextView
+                    android:id="@+id/cryptoMarket"
+                    android:layout_width="55dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="135dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="CryptoMarket"
+                    android:text="Crypto Market"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/button5"
+                    android:layout_width="55dp"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="195dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="CryptoWallet"
+                    android:text="Crypto Code"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+                />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/walletcardview"
+                android:layout_width="349dp"
+                android:layout_height="149dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#0C445E"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/StockWalletButton"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="230dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="StockWalletButton"
+                    android:text="Stock Wallet"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/cryptoWalletButton"
+                    android:layout_width="73dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="135dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="CryptoWalletButton"
+                    android:text="Crypto Wallet"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="130dp"
+                    android:text="Stock Market"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="125dp"
+                    android:layout_height="118dp"
+                    app:srcCompat="@drawable/walletimg" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="165dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Wallets"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+
+                android:id="@+id/button3"
+                android:layout_width="349dp"
+                android:layout_height="149dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#0C445E"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/stocksButton"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="230dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="Finances"
+                    android:text="Stocks"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/currencyExchangeButton"
+                    android:layout_width="73dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="135dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="CurrencyExchange"
+                    android:text="Currency Exchange"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="125dp"
+                    android:layout_height="118dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:srcCompat="@drawable/stockim" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="165dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Stock Market"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+
+                android:id="@+id/budgetingcardview"
+                android:layout_width="349dp"
+                android:layout_height="149dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#0C445E"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/stocksButton2"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="230dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="differentBudgetName"
+                    android:text="Budget Progress"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/SetBudgetingBtn"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="135dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:onClick="SetBudget"
+                    android:text="Set Budget"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_shade_1"
+                    android:textColorHighlight="@color/purple_200"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/budgetingcardtext"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="165dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Budgeting"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:id="@+id/budgetingimage"
+                    android:layout_width="153dp"
+                    android:layout_height="127dp"
+                    android:onClick="Calender"
+                    app:srcCompat="@drawable/budgetingim" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+
+                android:id="@+id/Calendercardview"
+                android:layout_width="349dp"
+                android:layout_height="149dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#0C445E"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/Calender"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="165dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Calender"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:id="@+id/calender"
+                    android:layout_width="143dp"
+                    android:layout_height="113dp"
+                    android:onClick="Calender"
+                    app:srcCompat="@drawable/calanderim" />
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/LogOutButton"
+                android:layout_width="129dp"
+                android:layout_height="61dp"
+                android:layout_gravity="center"
+                android:onClick="LogOutOnClick"
+                android:text="Log Out" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

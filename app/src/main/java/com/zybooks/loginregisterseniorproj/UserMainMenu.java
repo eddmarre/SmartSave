@@ -89,4 +89,22 @@ public class UserMainMenu extends AppCompatActivity {
         Intent n = new Intent(this, ViewCurrentFamilyMembers.class);
         startActivity(n);
     }
+    public void CryptoWalletButton(View view) {
+        Intent n = new Intent(this, UserCryptoWallet.class);
+        startActivity(n);
+    }
+
+    public void StockWalletButton(View view) {
+        Intent n = new Intent(this,UserStockWallet.class);
+        startActivity(n);
+    }
+    public void wInExp(View view) {
+        Intent n = new Intent(this, WeeklyInExp.class);
+        startActivity(n);
+    }
+
+    public void mexpense(View view) {
+        Intent n = new Intent(this, MonthlyPieCalc.class);
+        startActivity(n);
+    }
 }
