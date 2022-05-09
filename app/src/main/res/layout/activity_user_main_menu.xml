@@ -8,6 +8,10 @@
     android:background="@drawable/gradient"
     tools:context=".UserMainMenu">
 
+    <TextView
+        android:id="@+id/debugHelper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -437,7 +441,7 @@
                     android:background="#4CAF50"
                     android:gravity="center"
                     android:onClick="SetBudget"
-                    android:text="Set Budget"
+                    android:text="Profile"
                     android:textAlignment="center"
                     android:textColor="@color/black_shade_1"
                     android:textColorHighlight="@color/purple_200"

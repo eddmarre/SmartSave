@@ -19,6 +19,13 @@ public class SQLTableManager extends SQLiteOpenHelper {
     public static final String Account_User_COL_7 ="PASSWORD";
     public static final String Account_User_Col_8 ="ADMIN";
 
+    public static final String Account_User_Budget_TABLE_NAME ="Account_User_Budget";
+    public static final String Account_User_Budget_COL_1 ="USERID";
+    public static final String Account_User_Budget_COL_2 ="TOTAL_INCOME";
+    public static final String Account_User_Budget_COL_3 ="TOTAL_EXPENSE";
+    public static final String Account_User_Budget_COL_4 ="BUDGET";
+    public static final String Account_User_Budget_COL_5 ="DATE";
+
     public static final String EXPENSE_TABLE_NAME ="Account_User_Expense";
     public static final String Expense_Col_1 ="USERID";
     public static final String Expense_Col_2 ="DESCRIPTION";
@@ -77,6 +84,8 @@ public class SQLTableManager extends SQLiteOpenHelper {
         StockWallet(db);
         CryptoWallet(db);
 
+        AccountUserBudget(db);
+
         Expense(db);
         Income(db);
 
@@ -114,6 +123,15 @@ public class SQLTableManager extends SQLiteOpenHelper {
                 + Crypto_Wallet_Col_4 +" real, "
                 + Crypto_Wallet_Col_5 +" text, "
                 +"FOREIGN KEY ("+ Crypto_Wallet_Col_1 +") REFERENCES "+ Account_User_TABLE_NAME +"(EMAIL))");
+    }
+
+    private void AccountUserBudget(SQLiteDatabase db) {
+        db.execSQL("create table "+ Account_User_Budget_TABLE_NAME +" ("+ Account_User_Budget_COL_1 +" text, "
+                + Account_User_Budget_COL_2 +" real, "
+                + Account_User_Budget_COL_3 +" real, "
+                + Account_User_Budget_COL_4 +" real, "
+                + Account_User_Budget_COL_5 +" text, "
+                +"FOREIGN KEY ("+ Account_User_Budget_COL_1 +") REFERENCES "+ Account_User_TABLE_NAME +"(EMAIL))");
     }
 
     private void Expense(SQLiteDatabase db)
@@ -224,6 +242,28 @@ public class SQLTableManager extends SQLiteOpenHelper {
         contentValues.put(Crypto_Wallet_Col_5,purchaseDate);
         //checks to see if actual data is inserted
         long result=db.insert(Crypto_Wallet_TABLE_NAME,null,contentValues);
+        if(result==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean InsertAccountUserBudget(String userName,float totalIncome, float totalExpense,float budget, String date)
+    {
+
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(Account_User_Budget_COL_1,userName);
+        contentValues.put(Account_User_Budget_COL_2,totalIncome);
+        contentValues.put(Account_User_Budget_COL_3,totalExpense);
+        contentValues.put(Account_User_Budget_COL_4,budget);
+        contentValues.put(Account_User_Budget_COL_5,date);
+        //checks to see if actual data is inserted
+        long result=db.insert(Account_User_Budget_TABLE_NAME,null,contentValues);
         if(result==-1)
         {
             return false;
