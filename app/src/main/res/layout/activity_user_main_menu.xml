@@ -8,10 +8,6 @@
     android:background="@drawable/gradient"
     tools:context=".UserMainMenu">
 
-    <TextView
-        android:id="@+id/debugHelper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -177,7 +173,7 @@
 
                 <TextView
                     android:id="@+id/button14"
-                    android:layout_width="55dp"
+                    android:layout_width="49dp"
                     android:layout_height="45dp"
                     android:layout_marginHorizontal="255dp"
                     android:layout_marginTop="60dp"
@@ -211,8 +207,8 @@
 
                 <TextView
                     android:id="@+id/cryptoMarket"
-                    android:layout_width="55dp"
-                    android:layout_height="45dp"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginHorizontal="135dp"
                     android:layout_marginTop="60dp"
@@ -228,18 +224,18 @@
 
                 <TextView
                     android:id="@+id/button5"
-                    android:layout_width="55dp"
-                    android:layout_height="45dp"
+                    android:layout_width="59dp"
+                    android:layout_height="46dp"
                     android:layout_marginHorizontal="195dp"
                     android:layout_marginTop="60dp"
                     android:background="#4CAF50"
                     android:gravity="center"
                     android:onClick="CryptoWallet"
-                    android:text="Crypto Code"
+                    android:text="Crypto Transactions"
                     android:textAlignment="center"
                     android:textColor="@color/black_shade_1"
                     android:textColorHighlight="@color/purple_200"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
                 />
             </androidx.cardview.widget.CardView>
@@ -441,7 +437,7 @@
                     android:background="#4CAF50"
                     android:gravity="center"
                     android:onClick="SetBudget"
-                    android:text="Profile"
+                    android:text="Set Budget"
                     android:textAlignment="center"
                     android:textColor="@color/black_shade_1"
                     android:textColorHighlight="@color/purple_200"
@@ -478,7 +474,7 @@
                 app:cardElevation="8dp"
                 app:cardUseCompatPadding="true">
 
-                <!--<TextView
+                <TextView
                     android:id="@+id/Calender"
                     android:layout_width="109dp"
                     android:layout_height="wrap_content"
@@ -486,127 +482,13 @@
                     android:layout_marginTop="40dp"
                     android:text="Calender"
                     android:textAlignment="center"
-                    android:textColor="@color/gray" />-->
-                <TextView
-                    android:id="@+id/calendarText"
-                    android:layout_width="109dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="165dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:text="Calendar"
                     android:textColor="@color/gray" />
-                <TextView
-                    android:id="@+id/Calender"
-                    android:layout_width="80dp"
-                    android:layout_height="35dp"
-                    android:layout_marginHorizontal="180dp"
-                    android:layout_marginTop="60dp"
-                    android:background="#4CAF50"
-                    android:gravity="center"
-                    android:onClick="Calender"
-                    android:text="Calendar"
-                    android:textAlignment="center"
-                    android:textColor="@color/black_shade_1"
-                    android:textColorHighlight="@color/purple_200"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-               <!-- <TextView
-                    android:id="@+id/Calender"
-                    android:layout_width="73dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="135dp"
-                    android:layout_marginTop="60dp"
-                    android:background="#4CAF50"
-                    android:gravity="center"
-                    android:onClick="Calender"
-                    android:text="Calendar"
-                    android:textAlignment="center"
-                    android:textColor="@color/black_shade_1"
-                    android:textColorHighlight="@color/purple_200"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />-->
+
                 <ImageView
                     android:id="@+id/calender"
                     android:layout_width="143dp"
                     android:layout_height="113dp"
-                    app:srcCompat="@drawable/calanderim" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-
-                android:id="@+id/AccountIncome"
-                android:layout_width="349dp"
-                android:layout_height="149dp"
-                android:layout_gravity="center"
-                app:cardBackgroundColor="#0C445E"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="8dp"
-                app:cardUseCompatPadding="true">
-
-                <TextView
-                    android:id="@+id/incomeExpenseText"
-                    android:layout_width="109dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="165dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:text="Expense/Income"
-                    android:textColor="@color/gray" />
-                <!--<TextView
-                    android:id="@+id/Income"
-                    android:layout_width="80dp"
-                    android:layout_height="35dp"
-                    android:layout_marginHorizontal="180dp"
-                    android:layout_marginTop="60dp"
-                    android:background="#4CAF50"
-                    android:gravity="center"
-                    android:onClick="Income"
-                    android:text="Income"
-                    android:textAlignment="center"
-                    android:textColor="@color/black_shade_1"
-                    android:textColorHighlight="@color/purple_200"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />-->
-
-                <TextView
-                    android:id="@+id/IncomeTExt"
-                    android:layout_width="80dp"
-                    android:layout_height="35dp"
-                    android:layout_marginHorizontal="230dp"
-                    android:layout_marginTop="60dp"
-                    android:background="#4CAF50"
-                    android:gravity="center"
-                    android:onClick="Income"
-                    android:text="Income"
-                    android:textAlignment="center"
-                    android:textColor="@color/black_shade_1"
-                    android:textColorHighlight="@color/purple_200"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/ExpenseText"
-                    android:layout_width="73dp"
-                    android:layout_height="33dp"
-                    android:layout_marginHorizontal="135dp"
-                    android:layout_marginTop="60dp"
-                    android:background="#4CAF50"
-                    android:gravity="center"
-                    android:onClick="Expense"
-                    android:text="Expense"
-                    android:textAlignment="center"
-                    android:textColor="@color/black_shade_1"
-                    android:textColorHighlight="@color/purple_200"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/somethingRandom"
-                    android:layout_width="143dp"
-                    android:layout_height="113dp"
-                    android:onClick="Income"
+                    android:onClick="Calender"
                     app:srcCompat="@drawable/calanderim" />
 
             </androidx.cardview.widget.CardView>

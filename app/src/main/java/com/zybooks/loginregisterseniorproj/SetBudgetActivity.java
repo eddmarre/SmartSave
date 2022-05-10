@@ -11,8 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class SetBudgetActivity extends AppCompatActivity {
 EditText userBudgetText;
@@ -75,54 +73,6 @@ TextView showProfile;
 
     public void SaveBudget(float data)
     {
-        SQLTableManager tableManager=new SQLTableManager(this);
-
-        // 1) Grab Saved Data
-        SQLTableManager anotherTable = new SQLTableManager(this);
-        //create temp data holder
-        Cursor someOtherTable = anotherTable.GetTableData("Account_User_Budget");
-        //create a list to store all the data from the table
-
-        ArrayList<AccountUserBudget> userBudgets = new ArrayList<>();
-
-        float totalBudget;
-        float totalIncome;
-        float totalExpense;
-        //make sure table is not empty
-        if (someOtherTable.getCount() == 0) {
-            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
-        } else {
-            //if not empty try
-            try {
-                //reads all data from the database and compares to what we are looking for
-
-                    while (someOtherTable.moveToNext()) {
-                        if (someOtherTable.getString(0).equals(GetCurrentUserName())) {
-                            userBudgets.add(new AccountUserBudget(someOtherTable.getString(0), someOtherTable.getFloat(1), someOtherTable.getFloat(2),
-                                    someOtherTable.getFloat(3), someOtherTable.getString(4)));
-                        }
-                    }
-
-                //toss error if nothing was found in the data search
-            } catch (Exception e) {
-                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
-            }
-        }
-        if(userBudgets.size()!=0)
-        {
-            totalExpense=userBudgets.get(userBudgets.size()-1).getTotalExpense();
-            totalIncome=userBudgets.get(userBudgets.size()-1).getTotalIncome();
-        }
-        else
-        {
-            totalIncome=0;
-            totalExpense=0;
-        }
-
-        Date date = Calendar.getInstance().getTime();
-        tableManager.InsertAccountUserBudget(GetCurrentUserName(),totalIncome,totalExpense,data,date.toString());
-
-
         getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs2", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

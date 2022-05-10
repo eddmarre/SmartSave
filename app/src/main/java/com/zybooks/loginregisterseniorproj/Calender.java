@@ -8,11 +8,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -67,17 +65,9 @@ public class Calender extends AppCompatActivity implements CalendarAdapter.OnIte
         {
             CalendarUtils.selectedDate = date;
             setMonthView();
-            Toast.makeText(this, CalendarUtils.formattedDate(date), Toast.LENGTH_SHORT).show();
-            SetCalendarDate(CalendarUtils.formattedDate(date));
         }
     }
-    public void SetCalendarDate(String date)
-    {
-        SharedPreferences sharedPreferences = getSharedPreferences("SHARED_PREFS", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("selectedDate", date);
-        editor.apply();
-    }
+
     public void weeklyAction(View view)
     {
         startActivity(new Intent(this, WeekViewActivity.class));

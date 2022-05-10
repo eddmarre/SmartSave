@@ -18,18 +18,12 @@
     <string name="_sendbtn">Send</string>
     <string name="_convertbtn">Convert</string>
 
-    //calendar names
+    //calener names
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
     <string name="budgeted">Budgeted</string>
     <string name="used">Used</string>
     <string name="amount_left">Amount Left</string>
     <string name="budgeting">Budgeting</string>
-
-    //Income ExpenseSpinnerStuff
-    <string-array name="howOften">
-        <item>Daily</item>
-        <item>Weekly</item>
-        <item>Monthly</item>
-    </string-array>
+    <string name="budget_num">Budget Num</string>
 </resources>

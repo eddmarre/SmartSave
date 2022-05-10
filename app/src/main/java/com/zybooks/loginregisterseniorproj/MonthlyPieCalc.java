@@ -10,9 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Calendar;
-import java.util.Date;
-
 //Tino
 public class
 
@@ -179,19 +176,19 @@ MonthlyPieCalc extends AppCompatActivity {
             SQLTableManager thisTable = new SQLTableManager(this);
 
             //retrieve data
-            SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+           SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             String whatever = sharedPreferences.getString("text", "");
-            Date date = Calendar.getInstance().getTime();
             //insert data
-            boolean testMe = thisTable.InsertUserExpense(whatever, "Utilities", sum1, date.toString());
-            boolean testMe2 = thisTable.InsertUserExpense(whatever, "Food", sum2, date.toString());
-            boolean testMe3 = thisTable.InsertUserExpense(whatever, "Misc.", sum3, date.toString());
-            boolean testMe4 = thisTable.InsertUserExpense(whatever, "Medical", sum4, date.toString());
+            boolean testMe =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum1, "10/2/2000");
+            boolean testMe2 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum2, "10/2/2000");
+            boolean testMe3 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum3, "10/2/2000");
+            boolean testMe4 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum4, "10/2/2000");
             //boolean testMe5 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum5, "10/2/2000");
             //test Data
-            if (!testMe) {
-                Toast.makeText(this, "error inserting data", Toast.LENGTH_LONG);
-            }
+             if(!testMe)
+           {
+               Toast.makeText(this,"error inserting data",Toast.LENGTH_LONG);
+          }
             startActivity(n);
         }
     }

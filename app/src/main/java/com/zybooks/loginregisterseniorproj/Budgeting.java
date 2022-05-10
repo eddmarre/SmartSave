@@ -26,8 +26,7 @@ public class Budgeting extends AppCompatActivity {
     TextView amountLeft;
     TextView debugText;
     private ProgressBar budgetBar;
-    private int budgetBarStatus = 0;
-    private Handler nHandler = new Handler();
+
 
 
     @Override
@@ -113,6 +112,7 @@ public class Budgeting extends AppCompatActivity {
         Float progressPercent;
         progressPercent = (amtLeft/budget) * 100;
         int progressPercentInt = (int)Math.round(progressPercent);
+        // You've used _% of your budget
 
         budgetBar.setProgress(progressPercentInt); // Sets progress bar
         if (progressPercent < 0)

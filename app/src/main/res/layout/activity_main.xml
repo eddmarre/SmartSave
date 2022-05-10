@@ -93,7 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-<!--
+
    <Button
         android:id="@+id/login3"
         android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
--->
+
     <Button
         android:id="@+id/Register"
         android:layout_width="wrap_content"
