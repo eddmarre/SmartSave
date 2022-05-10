@@ -2,7 +2,6 @@ package com.zybooks.loginregisterseniorproj;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.accounts.Account;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -11,12 +10,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Set;
 
 //Burhan
 public class UserMainMenu extends AppCompatActivity {
@@ -34,7 +30,6 @@ public class UserMainMenu extends AppCompatActivity {
         getSupportActionBar().hide();
         debugHelper = findViewById(R.id.debugHelper);
         debugHelper.setVisibility(View.INVISIBLE);
-        displayUserBudget();
     }
 
     @Override
@@ -51,7 +46,7 @@ public class UserMainMenu extends AppCompatActivity {
 
         GetFinalTableData(tables);
 
-        setDisplayInformation();
+        setDebugDisplayInformation();
     }
 
     private void GetFirstInitialTableData(SQLTableManager anotherTable) {
@@ -177,9 +172,94 @@ public class UserMainMenu extends AppCompatActivity {
         }
     }
 
-    private void setDisplayInformation() {
+    private void setDebugDisplayInformation() {
         debugHelper.setVisibility(View.VISIBLE);
-        debugHelper.setText(userBudgets.get(userBudgets.size() - 1).toString());
+//        debugHelper.setText(userBudgets.get(userBudgets.size() - 1).toString());
+
+
+        Date today = Calendar.getInstance().getTime();
+
+        String todayDateString = today.toString();
+        String todayDateDay = todayDateString.substring(8, 10);
+        String todayDateMonth = todayDateString.substring(4, 7);
+        String todayDateYear = todayDateString.substring(24);
+        StringBuilder todaySB = new StringBuilder();
+        todaySB.append(todayDateDay + " " + todayDateMonth + " " + todayDateYear);
+
+        if (GetCalendarDate().equals("")) {
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));
+            Date lastDayOfMonth = cal.getTime();
+
+            String lastDateString = lastDayOfMonth.toString();
+            String lastDateDay = lastDateString.substring(8, 10);
+            String lastDateMonth = lastDateString.substring(4, 7);
+            String lastDateYear = lastDateString.substring(24);
+
+
+            StringBuilder lastSB = new StringBuilder();
+
+
+            lastSB.append(lastDateDay + " " + lastDateMonth + " " + lastDateYear);
+
+            if (todaySB.toString().equals(lastSB.toString())) {
+                Toast.makeText(this, "your budget's income and expense have been reset", Toast.LENGTH_SHORT).show();
+            } else
+                debugHelper.setText(todaySB.toString() + "\n" + lastSB.toString());
+        }
+        else
+        {
+            if(todaySB.toString().equals(GetCalendarDate()))
+            {
+                Toast.makeText(this, "your budget's income and expense have been reset, " +
+                        "pick a new date for a budget reset or wait till end of month", Toast.LENGTH_LONG).show();
+            }
+            debugHelper.setText(todaySB.toString()+ "\n" + GetCalendarDate());
+        }
+
+    }
+
+    private void resetBudget()
+    {
+        Date today = Calendar.getInstance().getTime();
+
+        String todayDateString = today.toString();
+        String todayDateDay = todayDateString.substring(8, 10);
+        String todayDateMonth = todayDateString.substring(4, 7);
+        String todayDateYear = todayDateString.substring(24);
+        StringBuilder todaySB = new StringBuilder();
+        todaySB.append(todayDateDay + " " + todayDateMonth + " " + todayDateYear);
+
+        if (GetCalendarDate().equals("")) {
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));
+            Date lastDayOfMonth = cal.getTime();
+
+            String lastDateString = lastDayOfMonth.toString();
+            String lastDateDay = lastDateString.substring(8, 10);
+            String lastDateMonth = lastDateString.substring(4, 7);
+            String lastDateYear = lastDateString.substring(24);
+
+
+            StringBuilder lastSB = new StringBuilder();
+
+
+            lastSB.append(lastDateDay + " " + lastDateMonth + " " + lastDateYear);
+
+            if (todaySB.toString().equals(lastSB.toString())) {
+                Toast.makeText(this, "your budget's income and expense have been reset", Toast.LENGTH_SHORT).show();
+            } else
+                debugHelper.setText(todaySB.toString() + "\n" + lastSB.toString());
+        }
+        else
+        {
+            if(todaySB.toString().equals(GetCalendarDate()))
+            {
+                Toast.makeText(this, "your budget's income and expense have been reset, " +
+                        "pick a new date for a budget reset or wait till end of month", Toast.LENGTH_LONG).show();
+            }
+            debugHelper.setText(todaySB.toString()+ "\n" + GetCalendarDate());
+        }
     }
 
     public void crypto(View view) {
@@ -273,10 +353,27 @@ public class UserMainMenu extends AppCompatActivity {
         Intent n = new Intent(this, MonthlyPieCalc.class);
         startActivity(n);
     }
+    public void Income(View view) {
+        Intent n = new Intent(this, AccountUserIncome.class);
+        startActivity(n);
+    }
+    public void Expense(View view) {
+        Intent n = new Intent(this, AccountUserExpense.class);
+        startActivity(n);
+    }
 
     private String GetCurrentUserName() {
         SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         String currentUserName = sharedPreferences.getString("text", "");
         return currentUserName;
     }
+
+
+    private String GetCalendarDate() {
+        SharedPreferences sharedPreferences = getSharedPreferences("SHARED_PREFS", MODE_PRIVATE);
+        String currentUserName = sharedPreferences.getString("selectedDate", "");
+        return currentUserName;
+    }
+
+
 }
