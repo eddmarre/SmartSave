@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
+import java.util.Date;
+
 //Burhan
 public class WeeklyInExp extends AppCompatActivity {
     TextView text01, income, expense, d1, d2, d3, d4, d5, d6, d7;
@@ -101,20 +105,22 @@ public class WeeklyInExp extends AppCompatActivity {
             //retrieve data
             SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             String whatever = sharedPreferences.getString("text", "");
+            Date date = Calendar.getInstance().getTime();
             //insert data
-            boolean testMe =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p1, "10/2/2000");
-            boolean testMe2 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p2, "10/2/2000");
-            boolean testMe3 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p3, "10/2/2000");
-            boolean testMe4 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p4, "10/2/2000");
-            boolean testMe5 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p5, "10/2/2000");
-            boolean testMe6 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p6, "10/2/2000");
-            boolean testMe7 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p7, "10/2/2000");
-            boolean testMe8 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p8, "10/2/2000");
-            boolean testMe9 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p9, "10/2/2000");
-            boolean testMe10 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p10, "10/2/2000");
-            boolean testMe11 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p11, "10/2/2000");
-            boolean testMe12 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p12, "10/2/2000");
-            boolean testMe13 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", p13, "10/2/2000");
+            boolean testMe =thisTable.InsertUserIncome(whatever, "", p, date.toString());
+            boolean testMe1 =thisTable.InsertUserExpense(whatever, "", p1, date.toString());
+            boolean testMe2 =thisTable.InsertUserIncome(whatever, "", p2, date.toString());
+            boolean testMe3 =thisTable.InsertUserExpense(whatever, "", p3, date.toString());
+            boolean testMe4 =thisTable.InsertUserIncome(whatever, "", p4, date.toString());
+            boolean testMe5 =thisTable.InsertUserExpense(whatever, "", p5, date.toString());
+            boolean testMe6 =thisTable.InsertUserIncome(whatever, "", p6, date.toString());
+            boolean testMe7 =thisTable.InsertUserExpense(whatever, "", p7, date.toString());
+            boolean testMe8 =thisTable.InsertUserIncome(whatever, "", p8, date.toString());
+            boolean testMe9 =thisTable.InsertUserExpense(whatever, "", p9, date.toString());
+            boolean testMe10 =thisTable.InsertUserIncome(whatever, "", p10, date.toString());
+            boolean testMe11 =thisTable.InsertUserExpense(whatever, "", p11, date.toString());
+            boolean testMe12 =thisTable.InsertUserIncome(whatever, "", p12, date.toString());
+            boolean testMe13 =thisTable.InsertUserExpense(whatever, "", p13, date.toString());
             //test Data
             if(!testMe)
             {
