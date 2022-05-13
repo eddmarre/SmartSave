@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-
+//Eddie
 public class ShowCryptoCurrencies extends AppCompatActivity {
     TextView textView;
     @Override

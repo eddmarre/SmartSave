@@ -17,6 +17,7 @@ import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+//Eddie
 // implemented from codeWithCal on github
 // https://github.com/codeWithCal/CalendarTutorialAndroidStudio.git
 public class DailyCalendarActivity extends AppCompatActivity

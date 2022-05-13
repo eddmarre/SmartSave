@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.time.LocalTime;
+//Eddie
 // implemented from codeWithCal on github
 // https://github.com/codeWithCal/CalendarTutorialAndroidStudio.git
 public class EventEditActivity extends AppCompatActivity

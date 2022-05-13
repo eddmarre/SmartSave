@@ -1,5 +1,5 @@
 package com.zybooks.loginregisterseniorproj;
-
+//Eddie
 public class RecurringExpense {
 
     private String userName;

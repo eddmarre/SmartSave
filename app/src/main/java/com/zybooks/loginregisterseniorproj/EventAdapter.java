@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.List;
+//Eddie
 // implemented from codeWithCal on github
 // https://github.com/codeWithCal/CalendarTutorialAndroidStudio.git
 public class EventAdapter extends ArrayAdapter<Event>

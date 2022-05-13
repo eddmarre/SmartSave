@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+//Eddie
 // implemented from codeWithCal on github
 // https://github.com/codeWithCal/CalendarTutorialAndroidStudio.git
 public class HourAdapter extends ArrayAdapter<HourEvent>

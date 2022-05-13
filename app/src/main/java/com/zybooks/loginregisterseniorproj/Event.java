@@ -3,6 +3,7 @@ package com.zybooks.loginregisterseniorproj;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+//Eddie
 // implemented from codeWithCal on github
 // https://github.com/codeWithCal/CalendarTutorialAndroidStudio.git
 public class Event

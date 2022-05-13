@@ -23,7 +23,6 @@ public class AddFamilyMember extends AppCompatActivity {
         familyUserDOB=findViewById(R.id.FamilyMemberDOBEditText);
         familyUserRelationToOwner=findViewById(R.id.FamilyMemberRelationShipEditText);
         familyUserPassword=findViewById(R.id.FamilyPasswordText);
-
     }
 
 
@@ -34,7 +33,6 @@ public class AddFamilyMember extends AppCompatActivity {
 
         if(familyUserSuccess)
         {
-           //Toast.makeText(this," successfully added user",Toast.LENGTH_LONG);
             setSavedFamiyUser(familyUserId.getText().toString());
             Intent n = new Intent(this, FamilyMemberMainMenu.class);
             startActivity(n);
@@ -56,7 +54,6 @@ public class AddFamilyMember extends AppCompatActivity {
 
     private void setSavedFamiyUser(String familyUserName)
     {
-        // SharedPreferences sharedPreferences =getSharedPreferences("sharedPreferencs",MODE_PRIVATE);
         SharedPreferences sharedPreferences=getSharedPreferences("sharedPrefs",MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
         editor.putString("familyUser",familyUserName);

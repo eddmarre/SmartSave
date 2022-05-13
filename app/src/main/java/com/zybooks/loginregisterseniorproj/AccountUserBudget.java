@@ -1,5 +1,5 @@
 package com.zybooks.loginregisterseniorproj;
-
+//Eddie
 public class AccountUserBudget {
     private String userName;
     private float totalIncome;

@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
+//Eddie
 public class CryptoMarket extends AppCompatActivity {
     EditText enteredText;
     @Override

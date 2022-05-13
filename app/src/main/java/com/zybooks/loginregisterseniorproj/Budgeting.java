@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-
+//Jordan
 public class Budgeting extends AppCompatActivity {
     float budget;
     float amtLeft;
@@ -24,11 +24,7 @@ public class Budgeting extends AppCompatActivity {
     TextView budgetAmount;
     TextView usedAmount;
     TextView amountLeft;
-    TextView debugText;
     private ProgressBar budgetBar;
-    private int budgetBarStatus = 0;
-    private Handler nHandler = new Handler();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +39,6 @@ public class Budgeting extends AppCompatActivity {
         budgetBar = (ProgressBar) findViewById(R.id.budgetbar);
 
     }
-
 
     private void GrabTableData() {
 
@@ -174,16 +169,6 @@ public class Budgeting extends AppCompatActivity {
         SharedPreferences sharedPreferences=getSharedPreferences("sharedPrefs2",MODE_PRIVATE);
         Float currentUserName=sharedPreferences.getFloat("getBudgetKeyName",0);
         return currentUserName;
-    }
-
-    public void SaveBudget(float data)
-    {
-        getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs2", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putFloat("getBudgetKeyName", data);
-        editor.apply();
-
     }
 
     public void check(View view)

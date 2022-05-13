@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+    //Eddie
     public void checkIfFamilyUserExist() {
 
         // 1) Grab Saved Data
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-
+    //Eddie
     private void SaveUserName(String userName) {
         // SharedPreferences sharedPreferences =getSharedPreferences("sharedPreferencs",MODE_PRIVATE);
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString(TEXT, userName);
         editor.apply();
     }
-
+    //Eddie
     public String GetCurrentUserName() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String currentUserName = sharedPreferences.getString(TEXT, "");
@@ -198,11 +198,6 @@ public class MainActivity extends AppCompatActivity {
     //Tino
     public void Register(View v) { //switch to registration activity
         Intent n = new Intent(this, Register.class);
-        startActivity(n);
-    }
-
-    public void LoginToApp2(View view) {
-        Intent n = new Intent(this, UserMainMenu.class);
         startActivity(n);
     }
 

@@ -1,5 +1,6 @@
 package com.zybooks.loginregisterseniorproj;
 //Data storage class
+//Eddie
 public class ExpenseRetrieval {
     String userName;
     String description;

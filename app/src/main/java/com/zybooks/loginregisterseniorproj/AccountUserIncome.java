@@ -101,35 +101,6 @@ public class AccountUserIncome extends AppCompatActivity implements AdapterView.
         incomeReport.setText(userIncomeInformation.toString());
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String currentOption = adapterView.getItemAtPosition(i).toString();
-        if (currentOption.equals("Daily")) {
-            isDaily = true;
-            isWeekly = false;
-            isMonthly = false;
-        } else if (currentOption.equals("Weekly")) {
-            isDaily = false;
-            isWeekly = true;
-            isMonthly = false;
-        } else if (currentOption.equals("Monthly")) {
-            isDaily = false;
-            isWeekly = false;
-            isMonthly = true;
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
-
-    private String getUserName() {
-        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        String currentUserName = sharedPreferences.getString("text", "");
-        return currentUserName;
-    }
-
     public void EnterIncome(View view) {
         SQLTableManager tableManager = new SQLTableManager(this);
 
@@ -217,7 +188,6 @@ public class AccountUserIncome extends AppCompatActivity implements AdapterView.
         day =dateString;
     }
 
-
     private void CheckNextMonth(String _month)
     {
         for(int i=1;i<13;i++)
@@ -250,7 +220,34 @@ public class AccountUserIncome extends AppCompatActivity implements AdapterView.
         month=_nextMonth;
     }
 
+    private String getUserName() {
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        String currentUserName = sharedPreferences.getString("text", "");
+        return currentUserName;
+    }
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String currentOption = adapterView.getItemAtPosition(i).toString();
+        if (currentOption.equals("Daily")) {
+            isDaily = true;
+            isWeekly = false;
+            isMonthly = false;
+        } else if (currentOption.equals("Weekly")) {
+            isDaily = false;
+            isWeekly = true;
+            isMonthly = false;
+        } else if (currentOption.equals("Monthly")) {
+            isDaily = false;
+            isWeekly = false;
+            isMonthly = true;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 
     private class UserIncome {
         private String userName;

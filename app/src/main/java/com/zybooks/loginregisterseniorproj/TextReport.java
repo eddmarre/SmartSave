@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-
+//Tino
 public class TextReport extends AppCompatActivity {
     TextView MonITextView,TueITextView,WedITextView,ThursITextView,FriITextView,SatITextView,SunITextView,MonETextView,TueETextView,
             WedETextView,ThursETextView,FriETextView,SatETextView,SunETextView;

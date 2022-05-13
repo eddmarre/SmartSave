@@ -19,7 +19,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
+//Eddie
 public class AccountUserExpense extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     TextView incomeReport;
     EditText description, lostRevenue;
@@ -31,8 +31,6 @@ public class AccountUserExpense extends AppCompatActivity implements AdapterView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_user_expense);
-
-
 
         Switch reoccurningExpenseSwitch = findViewById(R.id.ReoccuringExpenseSwitch);
         Spinner spinner = findViewById(R.id.ReocurringExpenseSpinner);
@@ -100,35 +98,6 @@ public class AccountUserExpense extends AppCompatActivity implements AdapterView
             userExpenseInformation.append(currentUser.toString());
         }
         incomeReport.setText(userExpenseInformation.toString());
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String currentOption = adapterView.getItemAtPosition(i).toString();
-        if (currentOption.equals("Daily")) {
-            isDaily = true;
-            isWeekly = false;
-            isMonthly = false;
-        } else if (currentOption.equals("Weekly")) {
-            isDaily = false;
-            isWeekly = true;
-            isMonthly = false;
-        } else if (currentOption.equals("Monthly")) {
-            isDaily = false;
-            isWeekly = false;
-            isMonthly = true;
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
-
-    private String getUserName() {
-        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        String currentUserName = sharedPreferences.getString("text", "");
-        return currentUserName;
     }
 
     public void EnterExpense(View view) {
@@ -218,7 +187,6 @@ public class AccountUserExpense extends AppCompatActivity implements AdapterView
         day =dateString;
     }
 
-
     private void CheckNextMonth(String _month)
     {
         for(int i=1;i<13;i++)
@@ -251,7 +219,34 @@ public class AccountUserExpense extends AppCompatActivity implements AdapterView
         month=_nextMonth;
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String currentOption = adapterView.getItemAtPosition(i).toString();
+        if (currentOption.equals("Daily")) {
+            isDaily = true;
+            isWeekly = false;
+            isMonthly = false;
+        } else if (currentOption.equals("Weekly")) {
+            isDaily = false;
+            isWeekly = true;
+            isMonthly = false;
+        } else if (currentOption.equals("Monthly")) {
+            isDaily = false;
+            isWeekly = false;
+            isMonthly = true;
+        }
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    private String getUserName() {
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        String currentUserName = sharedPreferences.getString("text", "");
+        return currentUserName;
+    }
 
     private class UserExpense {
         private String userName;

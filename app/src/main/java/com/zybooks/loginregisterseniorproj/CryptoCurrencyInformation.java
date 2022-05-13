@@ -29,7 +29,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-
+//Eddie
 public class CryptoCurrencyInformation extends AppCompatActivity {
     TextView text;
     CandleStickChart chart;
