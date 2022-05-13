@@ -260,7 +260,7 @@ public class AccountUserExpense extends AppCompatActivity implements AdapterView
 
         @Override
         public String toString() {
-            return "$" + lostRevenue + "\n" + description + "\n" + date + "\n\n";
+            return "-$" + lostRevenue + "\n" + description + "\n" + date + "\n\n";
         }
     }
 }

@@ -40,7 +40,7 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Gained Revenue"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IncomeDescriptionText" />
 
