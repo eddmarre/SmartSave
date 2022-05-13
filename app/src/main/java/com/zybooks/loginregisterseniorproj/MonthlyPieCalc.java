@@ -189,9 +189,6 @@ MonthlyPieCalc extends AppCompatActivity {
             boolean testMe4 = thisTable.InsertUserExpense(whatever, "Medical", sum4, date.toString());
             //boolean testMe5 =thisTable.InsertUserExpense(whatever, "TESTDATAOFSUMS", sum5, "10/2/2000");
             //test Data
-            if (!testMe) {
-                Toast.makeText(this, "error inserting data", Toast.LENGTH_LONG);
-            }
             startActivity(n);
         }
     }

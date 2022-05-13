@@ -36,7 +36,6 @@ TextView showProfile;
         ArrayList<AccountUserInformation> userInformations = new ArrayList<>();
         //make sure table is not empty
         if (someOtherTable.getCount() == 0) {
-            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
         } else {
             //if not empty try
             try {
@@ -55,7 +54,7 @@ TextView showProfile;
                 }
                 //toss error if nothing was found in the data search
             } catch (Exception e) {
-                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
+
             }
         }
 
@@ -90,7 +89,7 @@ TextView showProfile;
         float totalExpense;
         //make sure table is not empty
         if (someOtherTable.getCount() == 0) {
-            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
+
         } else {
             //if not empty try
             try {
@@ -105,7 +104,7 @@ TextView showProfile;
 
                 //toss error if nothing was found in the data search
             } catch (Exception e) {
-                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
+
             }
         }
         if(userBudgets.size()!=0)

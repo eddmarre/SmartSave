@@ -28,7 +28,7 @@ public class GetExpenseData extends AppCompatActivity {
         ArrayList<ExpenseRetrieval> allUserExpenses = new ArrayList<>();
         //Make sure the database isn't empty
         if (someOtherTable.getCount() == 0) {
-            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
+
         } else {
             //if not empty try
             try {
@@ -56,7 +56,7 @@ public class GetExpenseData extends AppCompatActivity {
                 }
                 //toss error if nothing was found in the data search
             } catch (Exception e) {
-                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
+
             }
         }
 

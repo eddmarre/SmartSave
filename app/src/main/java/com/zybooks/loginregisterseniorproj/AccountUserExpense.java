@@ -88,7 +88,6 @@ public class AccountUserExpense extends AppCompatActivity implements AdapterView
                 }
                 //toss error if nothing was found in the data search
             } catch (Exception e) {
-                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
             }
         }
         StringBuilder userExpenseInformation = new StringBuilder();
@@ -144,8 +143,6 @@ public class AccountUserExpense extends AppCompatActivity implements AdapterView
             String nextPaymentDate=day +" "+month;
 
             tableManager.InsertRecurringExpense(getUserName(),description.getText().toString(),lostRevenueFloat,nextPaymentDate,recurringType);
-
-            Toast.makeText(this, day +" "+month, Toast.LENGTH_SHORT).show();
         }
 
 

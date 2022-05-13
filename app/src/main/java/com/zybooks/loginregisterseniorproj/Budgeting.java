@@ -50,7 +50,6 @@ public class Budgeting extends AppCompatActivity {
         ArrayList<Float> allLostRevenues = new ArrayList<>();
         //make sure table is not empty
         if (someOtherTable.getCount() == 0) {
-            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
         } else {
             //if not empty try
             try {
@@ -70,7 +69,6 @@ public class Budgeting extends AppCompatActivity {
                 }
                 //toss error if nothing was found in the data search
             } catch (Exception e) {
-                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
             }
         }
         //for each float in the all lost revenue table

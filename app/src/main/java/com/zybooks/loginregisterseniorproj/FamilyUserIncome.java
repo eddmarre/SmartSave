@@ -64,7 +64,7 @@ public class FamilyUserIncome extends AppCompatActivity {
                 }
                 //toss error if nothing was found in the data search
             } catch (Exception e) {
-                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
+
             }
         }
         StringBuilder familyIncomeInformation = new StringBuilder();

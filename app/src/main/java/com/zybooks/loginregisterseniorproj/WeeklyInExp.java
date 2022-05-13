@@ -122,10 +122,7 @@ public class WeeklyInExp extends AppCompatActivity {
             boolean testMe12 =thisTable.InsertUserIncome(whatever, "", p12, date.toString());
             boolean testMe13 =thisTable.InsertUserExpense(whatever, "", p13, date.toString());
             //test Data
-            if(!testMe)
-            {
-                Toast.makeText(this,"error inserting data",Toast.LENGTH_LONG);
-            }
+
 
             startActivity(n);
         }

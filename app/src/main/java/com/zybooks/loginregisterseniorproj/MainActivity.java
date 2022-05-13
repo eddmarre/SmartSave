@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         CheckIfValidUserNameAndPassword();
         checkIfFamilyUserExist();
         if (!isValidLogin && isActivityActive) {
-            Toast.makeText(this, "error couldn't login", Toast.LENGTH_SHORT).show();
+           //can't log in
         }
     }
 
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         //retrieves the data from the database
         Cursor accountUserTableData = _SQLTableManager.GetTableData("Account_User");
         if (accountUserTableData.getCount() == 0) {
-            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
+
         } else {
             try {
                 //reads all data from the database and stores emails & passwords
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     passwords.add(accountUserTableData.getString(passwordIndex));
                 }
             } catch (Exception e) {
-                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
+
             }
         }
         //nested foreach loop used to check if the same username and password from the same database row matches
@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
         for (String _username : userNames) {
             for (String _password : passwords) {
                 if (username.getText().toString().equals(_username) && (password.getText().toString().equals(_password))) {
-                    Toast.makeText(MainActivity.this, "Successful login", Toast.LENGTH_SHORT).show();
                     isValidLogin = true;
                     SaveUserName(username.getText().toString());
                     ChangeActivityAfterLogin(_username);
@@ -145,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<FamilyUser> users = new ArrayList<>();
         //make sure table is not empty
         if (someOtherTable.getCount() == 0) {
-            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
+
         } else {
             //if not empty try
             try {
@@ -156,13 +155,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 //toss error if nothing was found in the data search
             } catch (Exception e) {
-                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
+
             }
 
 
             for (FamilyUser user : users) {
                 if (username.getText().toString().equals(user.getUserId()) && (password.getText().toString().equals(user.getRelationToOwner()))) {
-                    Toast.makeText(MainActivity.this, "Successful login", Toast.LENGTH_SHORT).show();
                     isValidLogin = true;
                     Intent n = new Intent(this, FamilyMemberMainMenu.class);
                     startActivity(n);

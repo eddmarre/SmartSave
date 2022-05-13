@@ -39,7 +39,7 @@ public class AddFamilyMember extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(this,"Something went wrong",Toast.LENGTH_LONG);
+
         }
     }
 

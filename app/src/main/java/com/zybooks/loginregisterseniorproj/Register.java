@@ -93,7 +93,7 @@ public class Register extends AppCompatActivity {
 
         if(registerNewUser)
         {
-           MakeToastDialoguge("successfully registered new user in database");
+           MakeToastDialoguge("successfully registered new user you may now login");
         }
         else
         {
