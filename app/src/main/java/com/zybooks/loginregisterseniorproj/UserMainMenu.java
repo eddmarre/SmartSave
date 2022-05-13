@@ -20,9 +20,13 @@ public class UserMainMenu extends AppCompatActivity {
     float totalBudget = 0;
     float totalIncome = 0;
     float totalExpense = 0;
-    Intent expenseIntent;
+    Intent expenseIntent, incomeIntent;
+
+    String day, month;
 
     ArrayList<AccountUserBudget> userBudgets = new ArrayList<>();
+
+    SQLTableManager table=new SQLTableManager(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,232 @@ public class UserMainMenu extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         expenseIntent =new Intent(this, AccountUserExpense.class);
+        incomeIntent=new Intent(this, AccountUserIncome.class);
         displayUserBudget();
+        checkForRecurringPayments();
+    }
+
+    private void checkForRecurringPayments()
+    {
+
+        //create temp data holder
+        Cursor recurringExpenseTable = table.GetTableData("Account_User_Recurring_Expense");
+        //create a list to store all the data from the table
+        ArrayList<RecurringExpense> allRecurringExpenses = new ArrayList<>();
+        //make sure table is not empty
+        if (recurringExpenseTable.getCount() == 0) {
+            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
+        } else {
+            //if not empty try
+            try {
+                //reads all data from the database and compares to what we are looking for
+                while (recurringExpenseTable.moveToNext()) {
+                    //constant integer for column number
+                    //starts from 0
+                    String userName = (recurringExpenseTable.getString(0));
+
+                    if (userName.equals(GetCurrentUserName())) {
+                        final int lostRevenueColumnNumber = 2;
+                        //add data to our list
+                        allRecurringExpenses.add(new RecurringExpense(GetCurrentUserName(),
+                                recurringExpenseTable.getString(1), recurringExpenseTable.getFloat(2),
+                                recurringExpenseTable.getString(3),recurringExpenseTable.getString(4)));
+                    }
+
+                }
+                //toss error if nothing was found in the data search
+            } catch (Exception e) {
+                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        for(RecurringExpense expense:allRecurringExpenses)
+        {
+            Date today = Calendar.getInstance().getTime();
+
+            String todayDateString = today.toString();
+            String todayDateDay = todayDateString.substring(8, 10);
+            String todayDateMonth = todayDateString.substring(4, 7);
+            String todayDateYear = todayDateString.substring(24);
+
+            StringBuilder todaySB = new StringBuilder();
+            todaySB.append(todayDateDay + " " + todayDateMonth);
+
+            if(todaySB.toString().equals(expense.getNextPaymentDate()))
+            {
+                table.InsertUserExpense(GetCurrentUserName(),expense.getDescription(),expense.getLostRevenue(),todaySB.toString());
+                day=todayDateDay;
+                month=todayDateMonth;
+                int dayNumber=Integer.parseInt(todayDateDay);
+                if(expense.getRecurringType().equals("daily"))
+                {
+                    dayNumber+=1;
+                }
+                if(expense.getRecurringType().equals("weekly"))
+                {
+                    dayNumber+=7;
+                }
+                CheckMonthMaxDay(month,dayNumber);
+               if( expense.getRecurringType().equals("monthly"))
+                {
+                    CheckNextMonth(month);
+                }
+                String nextPaymentDate=day +" "+month;
+               try {
+                       table.UpdateRecurringExpenseDate(GetCurrentUserName(),expense.getDescription(),expense.getLostRevenue(),nextPaymentDate,expense.getRecurringType(),expense.getDescription());
+                   }
+               catch (Exception e)
+               {
+                   Toast.makeText(this, "can't update table", Toast.LENGTH_SHORT).show();
+               }
+              
+            }
+        }
+
+
+
+        //create temp data holder
+        Cursor recurringIncomeTable = table.GetTableData("Account_User_Recurring_Income");
+        //create a list to store all the data from the table
+        ArrayList<RecurringIncome> allRecurringIncomes = new ArrayList<>();
+        //make sure table is not empty
+        if (recurringIncomeTable.getCount() == 0) {
+            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
+        } else {
+            //if not empty try
+            try {
+                //reads all data from the database and compares to what we are looking for
+                while (recurringIncomeTable.moveToNext()) {
+                    //constant integer for column number
+                    //starts from 0
+                    String userName = (recurringIncomeTable.getString(0));
+
+                    if (userName.equals(GetCurrentUserName())) {
+                        final int lostRevenueColumnNumber = 2;
+                        //add data to our list
+                        allRecurringIncomes.add(new RecurringIncome(GetCurrentUserName(),
+                                recurringIncomeTable.getString(1), recurringIncomeTable.getFloat(2),
+                                recurringIncomeTable.getString(3),recurringIncomeTable.getString(4)));
+                    }
+
+                }
+                //toss error if nothing was found in the data search
+            } catch (Exception e) {
+                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        for(RecurringIncome incomes:allRecurringIncomes)
+        {
+            Date today = Calendar.getInstance().getTime();
+
+            String todayDateString = today.toString();
+            String todayDateDay = todayDateString.substring(8, 10);
+            String todayDateMonth = todayDateString.substring(4, 7);
+            String todayDateYear = todayDateString.substring(24);
+
+            StringBuilder todaySB = new StringBuilder();
+            todaySB.append(todayDateDay + " " + todayDateMonth);
+
+            if(todaySB.toString().equals(incomes.getNextPaymentDate()))
+            {
+                table.InsertUserIncome(GetCurrentUserName(),incomes.getDescription(),incomes.getLostRevenue(),todaySB.toString());
+                day=todayDateDay;
+                month=todayDateMonth;
+                int dayNumber=Integer.parseInt(todayDateDay);
+                if(incomes.getRecurringType().equals("daily"))
+                {
+                    dayNumber+=1;
+                }
+                if(incomes.getRecurringType().equals("weekly"))
+                {
+                    dayNumber+=7;
+                }
+                CheckMonthMaxDay(month,dayNumber);
+                if( incomes.getRecurringType().equals("monthly"))
+                {
+                    CheckNextMonth(month);
+                }
+                String nextPaymentDate=day +" "+month;
+                try {
+                    table.UpdateRecurringIncomeDate(GetCurrentUserName(),incomes.getDescription(),incomes.getLostRevenue(),nextPaymentDate,incomes.getRecurringType(),incomes.getDescription());
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(this, "can't update table", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }
+    }
+
+    private void CheckMonthMaxDay(String currentMonth,int currentDateDay)
+    {
+        for(int i=1;i<13;i++)
+        {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.MONTH, i);
+            Date date = calendar.getTime();
+            String futureDateMonth = date.toString().substring(4, 7);
+            if(futureDateMonth.equals(currentMonth))
+            {
+                int lastDayOfMonth =calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+                if(currentDateDay>=lastDayOfMonth)
+                {
+                    int nextMonthDateLeftOver=lastDayOfMonth-currentDateDay;
+                    if(nextMonthDateLeftOver==0)
+                    {
+                        nextMonthDateLeftOver=1;
+                    }
+
+                    SetNextMonthDayDateAfterCheck(Math.abs(nextMonthDateLeftOver));
+                    CheckNextMonth(currentMonth);
+                }
+            }
+            else
+            {
+                day=String.format("%02d",currentDateDay);
+            }
+        }
+    }
+
+    private void SetNextMonthDayDateAfterCheck(int dateNumber)
+    {
+        String dateString=String.format("%02d",dateNumber);
+        day =dateString;
+    }
+
+
+    private void CheckNextMonth(String _month)
+    {
+        for(int i=1;i<13;i++)
+        {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.MONTH, i);
+            Date date = calendar.getTime();
+            String futureDateMonth = date.toString().substring(4, 7);
+            if(futureDateMonth.equals(_month))
+            {
+                int nextMonth=i;
+                if(i==12)
+                {
+                    nextMonth=1;
+                }
+                else
+                {
+                    nextMonth+=1;
+                }
+                calendar.set(Calendar.MONTH,nextMonth);
+                date=calendar.getTime();
+                futureDateMonth = date.toString().substring(4, 7);
+                SetNextMonthAfterCheck(futureDateMonth);
+            }
+        }
+    }
+
+    private void SetNextMonthAfterCheck(String _nextMonth)
+    {
+        month=_nextMonth;
     }
 
     private void displayUserBudget() {
@@ -188,10 +417,12 @@ public class UserMainMenu extends AppCompatActivity {
         try {
             expenseIntent.putExtra("day", todayDateDay);
             expenseIntent.putExtra("month", todayDateMonth);
+            incomeIntent.putExtra("day", todayDateDay);
+            incomeIntent.putExtra("month", todayDateMonth);
         }
         catch(Exception e)
         {
-            Toast.makeText(this, "couldn't save", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "couldn't save date", Toast.LENGTH_SHORT).show();
         }
         StringBuilder todaySB = new StringBuilder();
         todaySB.append(todayDateDay + " " + todayDateMonth + " " + todayDateYear);
@@ -242,6 +473,8 @@ public class UserMainMenu extends AppCompatActivity {
         todaySB.append(todayDateDay + " " + todayDateMonth + " " + todayDateYear);
         expenseIntent.putExtra("day",todayDateDay);
         expenseIntent.putExtra("month",todayDateMonth);
+        incomeIntent.putExtra("day", todayDateDay);
+        incomeIntent.putExtra("month", todayDateMonth);
         if (GetCalendarDate().equals("")) {
             Calendar cal = Calendar.getInstance();
             cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));
@@ -366,8 +599,8 @@ public class UserMainMenu extends AppCompatActivity {
         startActivity(n);
     }
     public void Income(View view) {
-        Intent n = new Intent(this, AccountUserIncome.class);
-        startActivity(n);
+//        Intent n = new Intent(this, AccountUserIncome.class);
+        startActivity(incomeIntent);
     }
     public void Expense(View view) {
        // expenseIntent = new Intent(this, AccountUserExpense.class);

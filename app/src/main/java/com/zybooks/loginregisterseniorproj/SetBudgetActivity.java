@@ -49,7 +49,7 @@ TextView showProfile;
                     if (userName.equals(GetCurrentUserName())) {
                         userInformations.add(new AccountUserInformation(someOtherTable.getString(1),
                                 someOtherTable.getString(2), someOtherTable.getString(3), GetCurrentUserName(),
-                                someOtherTable.getInt(5)));
+                                someOtherTable.getString(5)));
                     }
 
                 }
@@ -144,9 +144,9 @@ TextView showProfile;
         String lastName;
         String DOB;
         String UserName;
-        int phoneNumber;
+        String phoneNumber;
 
-        public AccountUserInformation(String firstName, String lastName, String DOB, String UserName, int phoneNumber)
+        public AccountUserInformation(String firstName, String lastName, String DOB, String UserName, String phoneNumber)
         {
             this.firstName=firstName;
             this.lastName=lastName;
@@ -171,7 +171,7 @@ TextView showProfile;
             return DOB;
         }
 
-        public int getPhoneNumber() {
+        public String getPhoneNumber() {
             return phoneNumber;
         }
 

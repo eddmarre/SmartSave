@@ -46,7 +46,7 @@ public class ViewCurrentFamilyMembers extends AppCompatActivity {
                 //reads all data from the database and compares to what we are looking for
                 while (someOtherTable.moveToNext()) {
                     users.add(new FamilyUser(someOtherTable.getString(1), someOtherTable.getString(2), someOtherTable.getString(3), someOtherTable.getString(4),
-                            someOtherTable.getString(5)));
+                            someOtherTable.getString(5),someOtherTable.getString(6)));
                 }
                 //toss error if nothing was found in the data search
             } catch (Exception e) {

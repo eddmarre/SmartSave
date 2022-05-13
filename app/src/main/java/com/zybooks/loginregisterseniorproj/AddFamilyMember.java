@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 //Eddie
 public class AddFamilyMember extends AppCompatActivity {
-    EditText familyUserId, familyUserFirstName, familyUserLastName, familyUserDOB, familyUserRelationToOwner;
+    EditText familyUserId, familyUserFirstName, familyUserLastName, familyUserDOB, familyUserRelationToOwner,familyUserPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +22,7 @@ public class AddFamilyMember extends AppCompatActivity {
         familyUserLastName=findViewById(R.id.FamilyMemberLastNameEditText);
         familyUserDOB=findViewById(R.id.FamilyMemberDOBEditText);
         familyUserRelationToOwner=findViewById(R.id.FamilyMemberRelationShipEditText);
+        familyUserPassword=findViewById(R.id.FamilyPasswordText);
 
     }
 
@@ -29,7 +30,7 @@ public class AddFamilyMember extends AppCompatActivity {
     public void AddMemberOnClick(View view) {
         SQLTableManager SQLTableManager = new SQLTableManager(this);
         boolean familyUserSuccess=SQLTableManager.InsertFamilyUser(GetCurrentUserName(),familyUserId.getText().toString(), familyUserFirstName.getText().toString(),
-                familyUserLastName.getText().toString(),familyUserDOB.getText().toString(),familyUserRelationToOwner.getText().toString());
+                familyUserLastName.getText().toString(),familyUserDOB.getText().toString(),familyUserRelationToOwner.getText().toString(),familyUserPassword.getText().toString());
 
         if(familyUserSuccess)
         {

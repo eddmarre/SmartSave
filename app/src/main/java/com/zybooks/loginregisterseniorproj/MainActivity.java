@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         CheckIfLoggedIn();
 
         CreateUserTable();
+
+
     }
 
     //Eddie
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
     //Eddie
     public void LoginToApp(View v) { //button to login, checks if username and password matches registration
         CheckIfValidUserNameAndPassword();
+        checkIfFamilyUserExist();
         if (!isValidLogin && isActivityActive) {
             Toast.makeText(this, "error couldn't login", Toast.LENGTH_SHORT).show();
         }
@@ -124,6 +127,45 @@ public class MainActivity extends AppCompatActivity {
                     isValidLogin = true;
                     SaveUserName(username.getText().toString());
                     ChangeActivityAfterLogin(_username);
+                } else {
+                    isValidLogin = false;
+                }
+            }
+        }
+    }
+
+    public void checkIfFamilyUserExist() {
+
+        // 1) Grab Saved Data
+        SQLTableManager anotherTable = new SQLTableManager(this);
+        //create temp data holder
+        Cursor someOtherTable = anotherTable.GetTableData("Account_User_Family_User");
+        //create a list to store all the data from the table
+
+        ArrayList<FamilyUser> users = new ArrayList<>();
+        //make sure table is not empty
+        if (someOtherTable.getCount() == 0) {
+            Toast.makeText(this, "error, database is empty", Toast.LENGTH_SHORT).show();
+        } else {
+            //if not empty try
+            try {
+                //reads all data from the database and compares to what we are looking for
+                while (someOtherTable.moveToNext()) {
+                    users.add(new FamilyUser(someOtherTable.getString(1), someOtherTable.getString(2), someOtherTable.getString(3), someOtherTable.getString(4),
+                            someOtherTable.getString(5),someOtherTable.getString(6)));
+                }
+                //toss error if nothing was found in the data search
+            } catch (Exception e) {
+                Toast.makeText(this, "error, couldn't show user data", Toast.LENGTH_SHORT).show();
+            }
+
+
+            for (FamilyUser user : users) {
+                if (username.getText().toString().equals(user.getUserId()) && (password.getText().toString().equals(user.getRelationToOwner()))) {
+                    Toast.makeText(MainActivity.this, "Successful login", Toast.LENGTH_SHORT).show();
+                    isValidLogin = true;
+                    Intent n = new Intent(this, FamilyMemberMainMenu.class);
+                    startActivity(n);
                 } else {
                     isValidLogin = false;
                 }
@@ -167,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
     //Eddie Debug Function
     private void InsertAllTablesGarbageValues() {
         SQLTableManager SQLTableManager = new SQLTableManager(this);
-        boolean accountUserSuccess = SQLTableManager.InsertAccountUser("Admin", "User", "xx/xx/xxxx", "admin@savesmart.com", 1234567890, "adminPassword");
+        boolean accountUserSuccess = SQLTableManager.InsertAccountUser("Admin", "User", "xx/xx/xxxx", "admin@savesmart.com", "1234567890", "adminPassword");
 
         boolean cryptoWalletSuccess = SQLTableManager.InsertCryptoWallet("admin@savesmart.com", "AAA", 1, 100, "today");
         boolean stockWalletSuccess = SQLTableManager.InsertStockWallet("admin@savesmart.com", "BTC", 1, 100, "today");
@@ -177,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
         boolean userIncomeSuccess = SQLTableManager.InsertUserIncome("admin@savesmart.com", "nothing yet", 500, "today");
         boolean userExpenseSuccess = SQLTableManager.InsertUserExpense("admin@savesmart.com", "nothing yet", 500, "today");
 
-        boolean familyUserSuccess = SQLTableManager.InsertFamilyUser("admin@savesmart.com", "COOLGUY", "John", "Doe", "today", "Son");
+        boolean familyUserSuccess = SQLTableManager.InsertFamilyUser("admin@savesmart.com", "COOLGUY", "John", "Doe", "today", "Son","password");
 
         boolean familyUserIncomeSuccess = SQLTableManager.InsertFamilyUserIncome("COOLGUY", "nothing yet", 500, "today");
         boolean familyUserExpenseSuccess = SQLTableManager.InsertFamilyUserExpense("COOLGUY", "nothing yet", 500, "today");

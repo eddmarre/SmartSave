@@ -2,10 +2,6 @@ package com.zybooks.loginregisterseniorproj;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlarmManager;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -27,6 +23,8 @@ import java.util.Date;
 public class AccountUserExpense extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     TextView incomeReport;
     EditText description, lostRevenue;
+
+    String month, day;
     boolean isDaily = false, isWeekly = false, isMonthly = false, isOneTime = true;
 
     @Override
@@ -61,10 +59,10 @@ public class AccountUserExpense extends AppCompatActivity implements AdapterView
             }
         });
 
-        DisplayIncome();
+        DisplayExpense();
     }
 
-    private void DisplayIncome() {
+    private void DisplayExpense() {
         // 1) Grab Saved Data
         SQLTableManager anotherTable = new SQLTableManager(this);
         //create temp data holder
@@ -143,33 +141,118 @@ public class AccountUserExpense extends AppCompatActivity implements AdapterView
 
         tableManager.InsertUserExpense(getUserName(), description.getText().toString(), lostRevenueFloat, currentTime.toString());
 
-        DisplayIncome();
+        DisplayExpense();
         if (isOneTime) {
             return;
         }
         else
         {
             Intent getDateIntent=getIntent();
-            String day,month;
-
-            day=getDateIntent.getStringExtra("day");
+            String thismonth;
+            day =getDateIntent.getStringExtra("day");
             month=getDateIntent.getStringExtra("month");
+            thismonth=month;
+            int dayNumber=Integer.parseInt(day);
+            int displayNumber=dayNumber;
+            String recurringType="";
+            if(isDaily)
+            {
+                displayNumber+=1;
+                recurringType="daily";
+            }
+            if(isWeekly)
+            {
+                displayNumber+=7;
+                recurringType="weekly";
+            }
+            CheckMonthMaxDay(month,displayNumber);
+            if(isMonthly)
+            {
+                CheckNextMonth(thismonth);
+                recurringType="monthly";
+            }
 
+            String nextPaymentDate=day +" "+month;
 
-            Toast.makeText(this, day+" "+month, Toast.LENGTH_SHORT).show();
+            tableManager.InsertRecurringExpense(getUserName(),description.getText().toString(),lostRevenueFloat,nextPaymentDate,recurringType);
+
+            Toast.makeText(this, day +" "+month, Toast.LENGTH_SHORT).show();
         }
 
 
     }
 
-    private void createNotificationChannel()
+    private void CheckMonthMaxDay(String currentMonth,int currentDateDay)
     {
-        NotificationChannel channel= new NotificationChannel("notifyMe", "ReminderChannel", NotificationManager.IMPORTANCE_DEFAULT);
-        channel.setDescription("channel for reminder");
+        for(int i=1;i<13;i++)
+        {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.MONTH, i);
+            Date date = calendar.getTime();
+            String futureDateMonth = date.toString().substring(4, 7);
+            if(futureDateMonth.equals(currentMonth))
+            {
+                int lastDayOfMonth =calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+                if(currentDateDay>=lastDayOfMonth)
+                {
+                    int nextMonthDateLeftOver=lastDayOfMonth-currentDateDay;
+                    if(nextMonthDateLeftOver==0)
+                    {
+                        nextMonthDateLeftOver=1;
+                    }
 
-        NotificationManager notificationManager = getSystemService(NotificationManager.class);
-        notificationManager.createNotificationChannel(channel);
+                    SetNextMonthDayDateAfterCheck(Math.abs(nextMonthDateLeftOver));
+                    CheckNextMonth(currentMonth);
+                }
+                else
+                {
+                    day=String.format("%02d",currentDateDay);
+                }
+            }
+        }
     }
+
+    private void SetNextMonthDayDateAfterCheck(int dateNumber)
+    {
+        String dateString=String.format("%02d",dateNumber);
+        day =dateString;
+    }
+
+
+    private void CheckNextMonth(String _month)
+    {
+        for(int i=1;i<13;i++)
+        {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.MONTH, i);
+            Date date = calendar.getTime();
+            String futureDateMonth = date.toString().substring(4, 7);
+            if(futureDateMonth.equals(_month))
+            {
+                int nextMonth=i;
+                if(i==12)
+                {
+                    nextMonth=1;
+                }
+                else
+                {
+                    nextMonth+=1;
+                }
+                calendar.set(Calendar.MONTH,nextMonth);
+                date=calendar.getTime();
+                futureDateMonth = date.toString().substring(4, 7);
+                SetNextMonthAfterCheck(futureDateMonth);
+            }
+        }
+    }
+
+    private void SetNextMonthAfterCheck(String _nextMonth)
+    {
+        month=_nextMonth;
+    }
+
+
+
     private class UserExpense {
         private String userName;
         private String description;

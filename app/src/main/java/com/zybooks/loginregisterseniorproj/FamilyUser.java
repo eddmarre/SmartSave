@@ -7,14 +7,16 @@ public class FamilyUser
     String LastName;
     String DOB;
     String RelationToOwner;
+    String Password;
 
-    public FamilyUser(String userId, String firstName, String lastName, String dob, String relationToOwner)
+    public FamilyUser(String userId, String firstName, String lastName, String dob, String relationToOwner,String password)
     {
         UserId=userId;
         FirstName=firstName;
         LastName=lastName;
         DOB=dob;
         RelationToOwner=relationToOwner;
+        Password=password;
     }
 
     public String getDOB() {
@@ -36,4 +38,5 @@ public class FamilyUser
     public String getRelationToOwner() {
         return RelationToOwner;
     }
+    public String getPassword(){return Password;}
 }
