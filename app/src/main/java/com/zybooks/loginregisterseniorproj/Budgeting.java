@@ -1,18 +1,15 @@
 package com.zybooks.loginregisterseniorproj;
 
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 //Jordan
@@ -20,11 +17,12 @@ public class Budgeting extends AppCompatActivity {
     float budget;
     float amtLeft;
     float usedAmt;
-    float budgetNoti1, budgetNoti2, budgetNoti3; // Number that will notify user that they have surpassed a percentage of their budget
+    float fiftypct, seventyfivepct, twentyfivepct; // Number that will notify user that they have surpassed a percentage of their budget
     TextView budgetAmount;
     TextView usedAmount;
     TextView amountLeft;
     private ProgressBar budgetBar;
+    Button checkbudgetbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +35,7 @@ public class Budgeting extends AppCompatActivity {
         usedAmount.setText("0");
         amountLeft.setText("0");
         budgetBar = (ProgressBar) findViewById(R.id.budgetbar);
+        checkbudgetbutton = findViewById(R.id.checkbudgetbutton);
 
     }
 
@@ -77,16 +76,18 @@ public class Budgeting extends AppCompatActivity {
             usedAmt += currentFloat;
         }
 
+        budget = GetBudget();
         // 3) Save the data again
 
         SaveData(usedAmt);
         StringBuilder NotifcationDebug = new StringBuilder();
-        budgetNoti1 = (budget/(2f)); // %50 of budget
-        budgetNoti2 = (budget/(4f/3f)); // 75% of budget
-        budgetNoti3 = budget; // %100 of budget used
-        NotifcationDebug.append(budgetNoti1+"\n");
-        NotifcationDebug.append(budgetNoti2+"\n");
-        NotifcationDebug.append(budgetNoti3+"\n");
+        fiftypct = (budget/(2f)); // %50 of budget
+        seventyfivepct = (budget/(4f/3f)); // 75% of budget
+        twentyfivepct = (budget/4f); // %25 of budget used
+        String debugString = String.valueOf(seventyfivepct);
+        NotifcationDebug.append(fiftypct +"\n");
+        NotifcationDebug.append(seventyfivepct +"\n");
+        NotifcationDebug.append(twentyfivepct +"\n");
 
 
         float budgetAmountString = GetBudget();
@@ -108,32 +109,40 @@ public class Budgeting extends AppCompatActivity {
         int progressPercentInt = (int)Math.round(progressPercent);
 
         budgetBar.setProgress(progressPercentInt); // Sets progress bar
-        if (progressPercent < 0)
+        if (amountLeftString < 0)
         {
-            amtLeft = 0;
+            amountLeft.setText("0");
             Toast.makeText(this,"Beyond Limit",Toast.LENGTH_LONG)
                     .show();
         }
-        else if (progressPercent == budgetNoti3) // 100%
+      else if (usedAmountStringFloat.equals(budgetStringFloat)) // 100%
         {
             Toast.makeText(this,"You reached your budget",Toast.LENGTH_LONG)
                     .show();
         }
-        else if (progressPercent < budgetNoti1 && progressPercent >= 0) // 0-49
+        else if (usedAmountString > 0 && usedAmountString < twentyfivepct+1) // 75% of  budget left
         {
-            Toast.makeText(this,"You have not passed the 50% mark of your budget",Toast.LENGTH_LONG)
+            Toast.makeText(this,"You have 75% of your budget remaining",Toast.LENGTH_LONG)
                     .show();
         }
-        else if (progressPercent <= budgetNoti2 && progressPercent > budgetNoti1) // 50-75
+
+         else if (usedAmountString > twentyfivepct +1 && usedAmountString < fiftypct +1) // Half of budget remaining
+         {
+             Toast.makeText(this,"You have half of your budget remaining",Toast.LENGTH_LONG)
+                     .show();
+         }
+
+       else if (usedAmountString > seventyfivepct +1 && usedAmountString < fiftypct +1 ) // 25 % of budget used
         {
-            Toast.makeText(this,"You have passed the 50% mark of your budget.",Toast.LENGTH_LONG)
+            Toast.makeText(this,"You have a quarter of your budget left",Toast.LENGTH_LONG)
                     .show();
         }
-        else if (progressPercent > budgetNoti2 && progressPercent <budgetNoti3) // 76-99
+        else if (usedAmountString < budget && usedAmountString > seventyfivepct +1 ) // 75 percent and on
         {
-            Toast.makeText(this,"You have passed the 75% mark of your budget.",Toast.LENGTH_LONG)
+            Toast.makeText(this,"You've nearly exceeded your budget!",Toast.LENGTH_LONG)
                     .show();
         }
+
 
 
 
@@ -172,6 +181,8 @@ public class Budgeting extends AppCompatActivity {
     public void check(View view)
     {
         GrabTableData();
+        checkbudgetbutton.setVisibility(View.INVISIBLE);
+
     }
 
 
