@@ -44,4 +44,7 @@ dependencies {
 
     //MPAndroid Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    //addmob
+    implementation 'com.google.android.gms:play-services-ads:20.6.0'
 }

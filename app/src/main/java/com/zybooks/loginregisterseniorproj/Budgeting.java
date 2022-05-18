@@ -21,7 +21,6 @@ public class Budgeting extends AppCompatActivity {
     TextView budgetAmount;
     TextView usedAmount;
     TextView amountLeft;
-    private ProgressBar budgetBar;
     Button checkbudgetbutton;
 
     @Override
@@ -34,7 +33,6 @@ public class Budgeting extends AppCompatActivity {
         budgetAmount.setText("0");
         usedAmount.setText("0");
         amountLeft.setText("0");
-        budgetBar = (ProgressBar) findViewById(R.id.budgetbar);
         checkbudgetbutton = findViewById(R.id.checkbudgetbutton);
 
     }
@@ -108,7 +106,6 @@ public class Budgeting extends AppCompatActivity {
         progressPercent = (amtLeft/budget) * 100;
         int progressPercentInt = (int)Math.round(progressPercent);
 
-        budgetBar.setProgress(progressPercentInt); // Sets progress bar
         if (amountLeftString < 0)
         {
             amountLeft.setText("0");

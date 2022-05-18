@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Tino & Burhan-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,11 +16,12 @@
         android:layout_marginTop="117dp"
         android:layout_marginEnd="37dp"
         android:layout_marginBottom="582dp"
+        android:fontFamily="@font/adamina"
         android:text="Weekly Income &amp; Expenses"
         android:textAlignment="center"
         android:textColor="@color/light_grey"
         android:textSize="27dp"
-        android:textStyle="bold"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +48,7 @@
         android:id="@+id/d7"
         android:layout_width="105dp"
         android:layout_height="67dp"
+        android:fontFamily="@font/adamina"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="290dp"
         android:layout_marginBottom="68dp"
@@ -84,6 +85,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="544dp"
         android:text="Expenses"
+        android:fontFamily="@font/adamina"
         android:textAlignment="center"
         android:textColor="@color/light_grey"
         android:textSize="25dp"
@@ -127,6 +129,7 @@
 
     <TextView
         android:id="@+id/d2"
+        android:fontFamily="@font/adamina"
         android:layout_width="105dp"
         android:layout_height="67dp"
         android:layout_marginStart="16dp"
@@ -192,6 +195,7 @@
     <TextView
         android:id="@+id/d4"
         android:layout_width="105dp"
+        android:fontFamily="@font/adamina"
         android:layout_height="67dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="290dp"
@@ -208,6 +212,7 @@
     <TextView
         android:id="@+id/d6"
         android:layout_width="105dp"
+        android:fontFamily="@font/adamina"
         android:layout_height="67dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="128dp"
@@ -220,6 +225,7 @@
 
     <TextView
         android:id="@+id/d1"
+        android:fontFamily="@font/adamina"
         android:layout_width="105dp"
         android:layout_height="67dp"
         android:layout_marginStart="16dp"
@@ -268,6 +274,7 @@
 
     <TextView
         android:id="@+id/d5"
+        android:fontFamily="@font/adamina"
         android:layout_width="105dp"
         android:layout_height="67dp"
         android:layout_marginStart="16dp"
@@ -332,6 +339,7 @@
 
     <TextView
         android:id="@+id/d3"
+        android:fontFamily="@font/adamina"
         android:layout_width="105dp"
         android:layout_height="67dp"
         android:layout_marginStart="16dp"
@@ -386,6 +394,7 @@
         android:layout_marginEnd="145dp"
         android:layout_marginBottom="544dp"
         android:text="Income"
+        android:fontFamily="@font/adamina"
         android:textAlignment="center"
         android:textColor="@color/light_grey"
         android:textSize="25dp"

@@ -146,7 +146,7 @@ public class AccountUserIncome extends AppCompatActivity implements AdapterView.
 
             tableManager.InsertRecurringIncome(getUserName(),description.getText().toString(),lostRevenueFloat,nextPaymentDate,recurringType);
 
-            Toast.makeText(this, day +" "+month, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, day +" "+month, Toast.LENGTH_SHORT).show();
         }
 
 

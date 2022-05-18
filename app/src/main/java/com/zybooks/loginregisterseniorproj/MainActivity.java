@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         checkIfFamilyUserExist();
         if (!isValidLogin && isActivityActive) {
            //can't log in
+            Toast.makeText(this, "wrong userName or password", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -160,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             for (FamilyUser user : users) {
-                if (username.getText().toString().equals(user.getUserId()) && (password.getText().toString().equals(user.getRelationToOwner()))) {
+                if (username.getText().toString().equals(user.getUserId()) && (password.getText().toString().equals(user.getPassword()))) {
                     isValidLogin = true;
                     Intent n = new Intent(this, FamilyMemberMainMenu.class);
                     startActivity(n);

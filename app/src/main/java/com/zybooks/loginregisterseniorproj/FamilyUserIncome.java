@@ -29,7 +29,7 @@ public class FamilyUserIncome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_family_user_income);
 
-        description = findViewById(R.id.FamilyIncomeDescriptionEditText);
+        description = findViewById(R.id.familyIncomeDescriptionEditText);
         amountGained = findViewById(R.id.FamilyIncomeAmountGainedEditText);
         incomeText = findViewById(R.id.FamilyIncomeReportTextView);
         DisplayIncome();
